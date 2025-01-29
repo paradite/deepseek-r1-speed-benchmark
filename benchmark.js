@@ -59,14 +59,15 @@ async function measureSpeed(showOutput = false) {
 
     const tokensPerSecond = usage.completion_tokens / responseTime;
 
-    console.log('\n\nBenchmark Results:');
-    console.log('------------------');
-    console.log(`Total tokens: ${usage.total_tokens}`);
-    console.log(`Prompt tokens: ${usage.prompt_tokens}`);
-    console.log(`Completion tokens: ${usage.completion_tokens}`);
-    console.log(`Response time: ${responseTime.toFixed(2)} seconds`);
-    console.log(`Speed: ${tokensPerSecond.toFixed(2)} tokens/second`);
-    console.log(`Response length: ${content.length} characters`);
+    console.log(
+      `\n\nBenchmark Results: Total tokens: ${usage.total_tokens}, Prompt tokens: ${
+        usage.prompt_tokens
+      }, Completion tokens: ${
+        usage.completion_tokens
+      }, Response time: ${responseTime.toFixed(2)}s, Speed: ${tokensPerSecond.toFixed(
+        2
+      )} tokens/s, Response length: ${content.length} chars`
+    );
   } catch (error) {
     console.error('\nError during benchmark:', error);
   }
