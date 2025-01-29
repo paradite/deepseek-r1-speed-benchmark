@@ -11,37 +11,6 @@ Currently supports:
 - [Fireworks](https://fireworks.ai/)
 - [Together](https://www.together.ai/)
 
-## Setup
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Create a `.env` file in the root directory.
-
-Follow the sample in the `.env.example` file to set up your API keys.
-
-3. Make sure you have Node.js version 20 or higher installed.
-
-## Usage
-
-Run the benchmark:
-
-```bash
-npm run benchmark        # Regular benchmark
-npm run benchmark-show-output # Show the API response while benchmarking
-```
-
-The script will measure:
-
-- Total tokens generated
-- Response time
-- First response latency
-- Tokens per second
-- Prompt and completion token counts
-
 ## Speed statistics
 
 Statistics of the speed of the API via `analyze-speed.js`.
@@ -122,6 +91,37 @@ Together  : Speed: 10.12 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Complet
 Full outputs:
 
 - Check [outputs](outputs) directory for full outputs
+
+## Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create a `.env` file in the root directory.
+
+Follow the sample in the `.env.example` file to set up your API keys.
+
+3. Make sure you have Node.js version 20 or higher installed.
+
+## Usage
+
+Run the benchmark:
+
+```bash
+npm run benchmark        # Regular benchmark
+npm run benchmark-show-output # Show the API response while benchmarking
+```
+
+The script will measure:
+
+- Total tokens generated
+- Response time
+- First response latency
+- Tokens per second
+- Prompt and completion token counts
 
 ## How it works
 
