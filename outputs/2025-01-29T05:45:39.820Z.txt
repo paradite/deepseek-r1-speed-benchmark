@@ -1,0 +1,34 @@
+Running benchmarks...
+showOutput: false
+testPrompt: What is the capital of France?
+
+Starting DeepSeek API speed benchmark...
+Receiving response...
+Error during DeepSeek benchmark: Error: Could not get token usage from response
+    at measureSpeed (file:///Users/paradite/workspace/github/deepseek-r1-speed-benchmark/benchmark.js:104:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async runAllBenchmarks (file:///Users/paradite/workspace/github/deepseek-r1-speed-benchmark/benchmark.js:154:20)
+
+Starting DeepInfra API speed benchmark...
+Receiving response... 1357 chars
+
+DeepInfra: Total tokens: 289, Prompt tokens: 10, Completion tokens: 279, Response time: 29.14s, First response latency: 0.88s, Speed: 9.58 tokens/s, Response length: 1357 chars
+
+Starting Fireworks API speed benchmark...
+Receiving response...unknown chunk
+{ role: 'assistant' }
+Receiving response... 836 chars
+
+Fireworks: Total tokens: 190, Prompt tokens: 10, Completion tokens: 180, Response time: 15.61s, First response latency: 2.10s, Speed: 11.53 tokens/s, Response length: 836 chars
+
+Starting Together API speed benchmark...
+Receiving response... 1216 chars
+
+Together: Total tokens: 270, Prompt tokens: 10, Completion tokens: 260, Response time: 32.25s, First response latency: 1.02s, Speed: 8.06 tokens/s, Response length: 1216 chars
+
+=== Final Benchmark Results ===
+Current time: 2025-01-29T05:45:39.820Z
+Test prompt: What is the capital of France?
+DeepInfra : Speed: 9.58 tokens/s, Total: 289 tokens, Prompt: 10 tokens, Completion: 279 tokens, Time: 29.14s, Latency: 0.88s, Length: 1357 chars
+Fireworks : Speed: 11.53 tokens/s, Total: 190 tokens, Prompt: 10 tokens, Completion: 180 tokens, Time: 15.61s, Latency: 2.10s, Length: 836 chars
+Together  : Speed: 8.06 tokens/s, Total: 270 tokens, Prompt: 10 tokens, Completion: 260 tokens, Time: 32.25s, Latency: 1.02s, Length: 1216 chars

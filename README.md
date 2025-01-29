@@ -46,6 +46,14 @@ Final summary:
 
 ```
 === Final Benchmark Results ===
+Current time: 2025-01-29T05:45:39.820Z
+Test prompt: What is the capital of France?
+DeepSeek: Error (Having an outage)
+DeepInfra : Speed: 9.58 tokens/s, Total: 289 tokens, Prompt: 10 tokens, Completion: 279 tokens, Time: 29.14s, Latency: 0.88s, Length: 1357 chars
+Fireworks : Speed: 11.53 tokens/s, Total: 190 tokens, Prompt: 10 tokens, Completion: 180 tokens, Time: 15.61s, Latency: 2.10s, Length: 836 chars
+Together  : Speed: 8.06 tokens/s, Total: 270 tokens, Prompt: 10 tokens, Completion: 260 tokens, Time: 32.25s, Latency: 1.02s, Length: 1216 chars
+
+=== Final Benchmark Results ===
 Current time: 2025-01-29T05:29:26.660Z
 DeepSeek: Total: 156 tokens, Prompt: 11 tokens, Completion: 145 tokens, Time: 5.09s, Latency: 1.22s, Speed: 28.47 tokens/s, Length: 617 chars
 DeepInfra: Total: 53 tokens, Prompt: 9 tokens, Completion: 44 tokens, Time: 5.29s, Latency: 1.01s, Speed: 8.32 tokens/s, Length: 207 chars
@@ -56,6 +64,7 @@ Together: Total: 53 tokens, Prompt: 9 tokens, Completion: 44 tokens, Time: 5.42s
 Full output:
 
 - [outputs/2025-01-29T05:29:26.660Z.txt](outputs/2025-01-29T05:29:26.660Z.txt)
+- [outputs/2025-01-29T05:45:39.820Z.txt](outputs/2025-01-29T05:45:39.820Z.txt)
 
 ## How it works
 
