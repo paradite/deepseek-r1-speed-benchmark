@@ -31,6 +31,15 @@ const providers = {
     model: 'accounts/fireworks/models/deepseek-r1',
     skip: false,
   },
+  together: {
+    name: 'Together',
+    client: new OpenAI({
+      baseURL: 'https://api.together.xyz/v1',
+      apiKey: process.env.TOGETHER_API_KEY,
+    }),
+    model: 'deepseek-ai/DeepSeek-R1',
+    skip: false,
+  },
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";
@@ -82,9 +91,6 @@ async function measureSpeed(provider, showOutput = false) {
         if (chunk.usage) {
           usage = chunk.usage;
         }
-      } else if (chunk.choices[0]?.delta === undefined) {
-        // Fireworks
-        // ignore
       } else {
         console.log('unknown chunk');
         console.log(chunk.choices[0].delta);
