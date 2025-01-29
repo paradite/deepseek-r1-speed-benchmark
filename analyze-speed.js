@@ -59,8 +59,10 @@ benchmarkData.forEach((run) => {
 });
 
 // Calculate and display statistics
-console.log('=== Speed Statistics (tokens/second) ===');
+console.log('=== Overall Speed Statistics (tokens/second) ===');
 console.log('Using latest', benchmarkData.length, 'benchmark runs\n');
+
+// First show the overall aggregate statistics
 Object.entries(providerSpeeds).forEach(([provider, speeds]) => {
   const mean = calculateMean(speeds);
   const median = calculateMedian(speeds);
@@ -68,3 +70,46 @@ Object.entries(providerSpeeds).forEach(([provider, speeds]) => {
     `${provider.padEnd(10)}: Mean: ${mean.toFixed(2)}, Median: ${median.toFixed(2)}`
   );
 });
+
+// Aggregate results by date
+console.log('\n=== Daily Statistics ===');
+const resultsByDate = {};
+
+benchmarkData.forEach((run) => {
+  const date = new Date(run.timestamp).toLocaleDateString();
+  if (!resultsByDate[date]) {
+    resultsByDate[date] = {
+      DeepSeek: [],
+      DeepInfra: [],
+      Fireworks: [],
+      Together: [],
+    };
+  }
+  Object.entries(run.results).forEach(([provider, speed]) => {
+    if (speed !== null) {
+      resultsByDate[date][provider].push(speed);
+    }
+  });
+});
+
+// Display daily statistics
+Object.entries(resultsByDate)
+  .sort((a, b) => new Date(a[0]) - new Date(b[0]))
+  .forEach(([date, providers]) => {
+    console.log(`\nDate: ${date}`);
+    Object.entries(providers).forEach(([provider, speeds]) => {
+      if (speeds.length > 0) {
+        const mean = calculateMean(speeds);
+        const median = calculateMedian(speeds);
+        const min = Math.min(...speeds);
+        const max = Math.max(...speeds);
+        console.log(
+          `${provider.padEnd(10)}: Mean: ${mean.toFixed(2)}, Median: ${median.toFixed(
+            2
+          )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${speeds.length}`
+        );
+      } else {
+        console.log(`${provider.padEnd(10)}: No data`);
+      }
+    });
+  });
