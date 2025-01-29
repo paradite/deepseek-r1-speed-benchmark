@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "benchmark": "node benchmark.js",
-    "benchmark-verbose": "node benchmark.js --show-output"
+    "benchmark-show-output": "node benchmark.js --show-output"
   },
   "dependencies": {
     "openai": "^4.0.0",

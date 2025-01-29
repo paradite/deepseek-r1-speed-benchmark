@@ -3,25 +3,43 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const openai = new OpenAI({
-  baseURL: 'https://api.deepseek.com',
-  apiKey: process.env.DEEPSEEK_API_KEY,
-});
-
-const MODEL_NAME = 'deepseek-reasoner';
+const providers = {
+  deepseek: {
+    name: 'DeepSeek',
+    client: new OpenAI({
+      baseURL: 'https://api.deepseek.com',
+      apiKey: process.env.DEEPSEEK_API_KEY,
+    }),
+    model: 'deepseek-reasoner',
+    skip: true,
+  },
+  deepinfra: {
+    name: 'DeepInfra',
+    client: new OpenAI({
+      baseURL: 'https://api.deepinfra.com/v1/openai',
+      apiKey: process.env.DEEPINFRA_TOKEN,
+    }),
+    model: 'deepseek-ai/DeepSeek-R1',
+    skip: false,
+  },
+};
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";
-const testPrompt = 'What is the capital of France?';
+// const testPrompt = 'What is the capital of France?';
+const testPrompt = 'Hello, how are you?';
 
-async function measureSpeed(showOutput = false) {
+async function measureSpeed(provider, showOutput = false) {
   const startTime = Date.now();
   let content = '';
   let usage = null;
+  let firstResponseTime = null;
 
   try {
-    const stream = await openai.chat.completions.create({
+    console.log(`\nStarting ${provider.name} API speed benchmark...`);
+
+    const stream = await provider.client.chat.completions.create({
       messages: [{ role: 'user', content: testPrompt }],
-      model: MODEL_NAME,
+      model: provider.model,
       stream: true,
       stream_options: {
         include_usage: true,
@@ -31,14 +49,22 @@ async function measureSpeed(showOutput = false) {
     process.stdout.write('\rReceiving response...');
 
     for await (const chunk of stream) {
-      if (chunk.choices[0]?.delta?.content) {
-        const content_delta = chunk.choices[0].delta.content;
-        content += content_delta;
+      // Record time of first response if not already set
+      if (firstResponseTime === null) {
+        firstResponseTime = (Date.now() - startTime) / 1000;
+      }
 
-        if (showOutput) {
+      const delta = chunk.choices[0]?.delta;
+      if (delta?.content !== undefined || delta?.reasoning_content !== undefined) {
+        const content_delta = delta.content || delta.reasoning_content;
+        content += content_delta;
+        if (showOutput && content_delta !== undefined) {
           process.stdout.write(content_delta);
         } else {
           process.stdout.write('\rReceiving response... ' + content.length + ' chars');
+        }
+        if (chunk.usage) {
+          usage = chunk.usage;
         }
       } else if (chunk.usage) {
         usage = chunk.usage;
@@ -47,6 +73,9 @@ async function measureSpeed(showOutput = false) {
         if (chunk.usage) {
           usage = chunk.usage;
         }
+      } else {
+        console.log('unknown chunk');
+        console.log(chunk.choices[0].delta);
       }
     }
 
@@ -60,22 +89,63 @@ async function measureSpeed(showOutput = false) {
     const tokensPerSecond = usage.completion_tokens / responseTime;
 
     console.log(
-      `\n\nBenchmark Results: Total tokens: ${usage.total_tokens}, Prompt tokens: ${
+      `\n\n${provider.name}: Total tokens: ${usage.total_tokens}, Prompt tokens: ${
         usage.prompt_tokens
       }, Completion tokens: ${
         usage.completion_tokens
-      }, Response time: ${responseTime.toFixed(2)}s, Speed: ${tokensPerSecond.toFixed(
+      }, Response time: ${responseTime.toFixed(
         2
-      )} tokens/s, Response length: ${content.length} chars`
+      )}s, First response latency: ${firstResponseTime.toFixed(
+        2
+      )}s, Speed: ${tokensPerSecond.toFixed(2)} tokens/s, Response length: ${
+        content.length
+      } chars`
     );
+
+    return {
+      name: provider.name,
+      totalTokens: usage.total_tokens,
+      promptTokens: usage.prompt_tokens,
+      completionTokens: usage.completion_tokens,
+      responseTime: responseTime.toFixed(2),
+      firstResponseLatency: firstResponseTime.toFixed(2),
+      speed: tokensPerSecond.toFixed(2),
+      responseLength: content.length,
+    };
   } catch (error) {
-    console.error('\nError during benchmark:', error);
+    console.error(`\nError during ${provider.name} benchmark:`, error);
+    return null;
   }
 }
 
 // Parse command line arguments
 const showOutput = process.argv.includes('--show-output');
 
-// Run benchmark
-console.log('Starting DeepSeek API speed benchmark...');
-measureSpeed(showOutput);
+// Run benchmarks for all providers
+async function runAllBenchmarks() {
+  console.log('Running benchmarks...');
+  console.log('showOutput:', showOutput);
+  console.log('testPrompt:', testPrompt);
+
+  const results = [];
+  for (const [key, provider] of Object.entries(providers)) {
+    if (provider.skip) {
+      console.log(`\nSkipping ${provider.name} as configured...`);
+      continue;
+    }
+    const result = await measureSpeed(provider, showOutput);
+    if (result) {
+      results.push(result);
+    }
+  }
+
+  // Print final results
+  console.log('\n=== Final Benchmark Results ===');
+  results.forEach((result) => {
+    console.log(
+      `${result.name}: Total: ${result.totalTokens} tokens, Prompt: ${result.promptTokens} tokens, Completion: ${result.completionTokens} tokens, Time: ${result.responseTime}s, Latency: ${result.firstResponseLatency}s, Speed: ${result.speed} tokens/s, Length: ${result.responseLength} chars`
+    );
+  });
+}
+
+runAllBenchmarks();
