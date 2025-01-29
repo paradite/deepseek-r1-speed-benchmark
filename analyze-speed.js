@@ -62,13 +62,22 @@ benchmarkData.forEach((run) => {
 console.log('=== Overall Speed Statistics (tokens/second) ===');
 console.log('Using latest', benchmarkData.length, 'benchmark runs\n');
 
-// First show the overall aggregate statistics
+// Show the overall aggregate statistics with the same format as daily
 Object.entries(providerSpeeds).forEach(([provider, speeds]) => {
-  const mean = calculateMean(speeds);
-  const median = calculateMedian(speeds);
-  console.log(
-    `${provider.padEnd(10)}: Mean: ${mean.toFixed(2)}, Median: ${median.toFixed(2)}`
-  );
+  const validSpeeds = speeds.filter((s) => s !== null);
+  if (validSpeeds.length > 0) {
+    const mean = calculateMean(validSpeeds);
+    const median = calculateMedian(validSpeeds);
+    const min = Math.min(...validSpeeds);
+    const max = Math.max(...validSpeeds);
+    console.log(
+      `${provider.padEnd(10)}: Mean: ${mean.toFixed(2)}, Median: ${median.toFixed(
+        2
+      )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${validSpeeds.length}`
+    );
+  } else {
+    console.log(`${provider.padEnd(10)}: No data`);
+  }
 });
 
 // Aggregate results by date

@@ -50,10 +50,10 @@ Statistics of the speed of the API via `analyze-speed.js`.
 === Overall Speed Statistics (tokens/second) ===
 Using latest 6 benchmark runs
 
-DeepSeek  : Mean: 32.31, Median: 27.48
-DeepInfra : Mean: 8.98, Median: 9.37
-Fireworks : Mean: 15.36, Median: 15.04
-Together  : Mean: 9.15, Median: 9.09
+DeepSeek  : Mean: 32.31, Median: 27.48, Min: 15.80, Max: 67.60, Runs: 6
+DeepInfra : Mean: 8.98, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 6
+Fireworks : Mean: 15.36, Median: 15.04, Min: 11.79, Max: 20.32, Runs: 6
+Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
 
 === Daily Statistics ===
 
