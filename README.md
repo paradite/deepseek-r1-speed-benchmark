@@ -46,6 +46,14 @@ Final summary:
 
 ```
 === Final Benchmark Results ===
+Current time: 2025-01-29T05:49:32.626Z
+Test prompt: What is the capital of France?
+DeepSeek  : Speed: 35.48 tokens/s, Total: 434 tokens, Prompt: 12 tokens, Completion: 422 tokens, Time: 11.89s, Latency: 3.26s, Length: 2010 chars
+DeepInfra : Speed: 9.21 tokens/s, Total: 131 tokens, Prompt: 10 tokens, Completion: 121 tokens, Time: 13.14s, Latency: 0.76s, Length: 552 chars
+Fireworks : Speed: 11.79 tokens/s, Total: 288 tokens, Prompt: 10 tokens, Completion: 278 tokens, Time: 23.57s, Latency: 2.69s, Length: 1338 chars
+Together  : Speed: 10.12 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Completion: 240 tokens, Time: 23.73s, Latency: 2.00s, Length: 1116 chars
+
+=== Final Benchmark Results ===
 Current time: 2025-01-29T05:45:39.820Z
 Test prompt: What is the capital of France?
 DeepSeek: Error (Having an outage)
