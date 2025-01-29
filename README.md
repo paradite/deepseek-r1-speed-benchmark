@@ -14,7 +14,7 @@ Currently supports:
 1. Install dependencies:
 
 ```bash
-npm install openai dotenv
+npm install
 ```
 
 2. Create a `.env` file in the root directory.
