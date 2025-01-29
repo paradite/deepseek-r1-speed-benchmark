@@ -40,11 +40,31 @@ The script will measure:
 - Tokens per second
 - Prompt and completion token counts
 
+## Speed statistics
+
+Statistics of the speed of the API via `analyze-speed.js`.
+
+```
+=== Speed Statistics (tokens/second) ===
+DeepSeek  : Mean: 39.26, Median: 34.73
+DeepInfra : Mean: 9.49, Median: 9.55
+Fireworks : Mean: 13.84, Median: 12.43
+Together  : Mean: 9.38, Median: 9.18
+```
+
 ## Sample output
 
 Latest summary:
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-29T07:03:57.238Z
+Test prompt: What is the capital of France?
+DeepSeek  : Speed: 20.00 tokens/s, Total: 435 tokens, Prompt: 12 tokens, Completion: 423 tokens, Time: 21.15s, Latency: 1.15s, Length: 1973 chars
+DeepInfra : Speed: 9.76 tokens/s, Total: 296 tokens, Prompt: 10 tokens, Completion: 286 tokens, Time: 29.30s, Latency: 0.82s, Length: 1388 chars
+Fireworks : Speed: 17.51 tokens/s, Total: 308 tokens, Prompt: 10 tokens, Completion: 298 tokens, Time: 17.02s, Latency: 1.88s, Length: 1307 chars
+Together  : Speed: 9.18 tokens/s, Total: 464 tokens, Prompt: 10 tokens, Completion: 454 tokens, Time: 49.45s, Latency: 0.98s, Length: 2148 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-29T06:51:22.327Z
 Test prompt: What is the capital of France?
