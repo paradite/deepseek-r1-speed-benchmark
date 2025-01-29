@@ -2,6 +2,13 @@
 
 Code for benchmarking the speed of DeepSeek R1 from different providers' APIs.
 
+Currently supports:
+
+- [DeepSeek](https://www.deepseek.com/)
+- [DeepInfra](https://deepinfra.com/)
+- [Fireworks](https://fireworks.ai/)
+- [Together](https://www.together.ai/)
+
 ## Setup
 
 1. Install dependencies:
