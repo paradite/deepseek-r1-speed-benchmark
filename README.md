@@ -10,12 +10,9 @@ Code for benchmarking the speed of DeepSeek R1 from different providers' APIs.
 npm install openai dotenv
 ```
 
-2. Create a `.env` file in the root directory with your DeepSeek API key:
+2. Create a `.env` file in the root directory.
 
-```bash
-DEEPSEEK_API_KEY=your_api_key_here
-DEEPINFRA_TOKEN=your_token_here
-```
+Follow the sample in the `.env.example` file to set up your API keys.
 
 3. Make sure you have Node.js version 20 or higher installed.
 

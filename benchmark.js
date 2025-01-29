@@ -22,6 +22,15 @@ const providers = {
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
   },
+  fireworks: {
+    name: 'Fireworks',
+    client: new OpenAI({
+      baseURL: 'https://api.fireworks.ai/inference/v1',
+      apiKey: process.env.FIREWORKS_API_KEY,
+    }),
+    model: 'accounts/fireworks/models/deepseek-r1',
+    skip: false,
+  },
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";
@@ -73,6 +82,9 @@ async function measureSpeed(provider, showOutput = false) {
         if (chunk.usage) {
           usage = chunk.usage;
         }
+      } else if (chunk.choices[0]?.delta === undefined) {
+        // Fireworks
+        // ignore
       } else {
         console.log('unknown chunk');
         console.log(chunk.choices[0].delta);
