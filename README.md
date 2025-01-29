@@ -46,17 +46,25 @@ Statistics of the speed of the API via `analyze-speed.js`.
 
 ```
 === Speed Statistics (tokens/second) ===
-DeepSeek  : Mean: 39.26, Median: 34.73
-DeepInfra : Mean: 9.49, Median: 9.55
-Fireworks : Mean: 13.84, Median: 12.43
-Together  : Mean: 9.38, Median: 9.18
+DeepSeek  : Mean: 34.57, Median: 33.98
+DeepInfra : Mean: 8.90, Median: 9.37
+Fireworks : Mean: 15.60, Median: 15.94
+Together  : Mean: 9.47, Median: 9.18
 ```
 
 ## Sample output
 
-Latest summary:
+Latest summary (last 5 runs without any errors):
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-29T07:20:31.774Z
+Test prompt: What is the capital of France?
+DeepSeek  : Speed: 15.80 tokens/s, Total: 295 tokens, Prompt: 12 tokens, Completion: 283 tokens, Time: 17.91s, Latency: 4.37s, Length: 1331 chars
+DeepInfra : Speed: 6.61 tokens/s, Total: 56 tokens, Prompt: 10 tokens, Completion: 46 tokens, Time: 6.95s, Latency: 1.11s, Length: 253 chars
+Fireworks : Speed: 20.32 tokens/s, Total: 241 tokens, Prompt: 10 tokens, Completion: 231 tokens, Time: 11.37s, Latency: 1.26s, Length: 1034 chars
+Together  : Speed: 8.51 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Completion: 240 tokens, Time: 28.21s, Latency: 1.09s, Length: 1164 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-29T07:03:57.238Z
 Test prompt: What is the capital of France?
@@ -88,14 +96,6 @@ DeepSeek  : Speed: 35.48 tokens/s, Total: 434 tokens, Prompt: 12 tokens, Complet
 DeepInfra : Speed: 9.21 tokens/s, Total: 131 tokens, Prompt: 10 tokens, Completion: 121 tokens, Time: 13.14s, Latency: 0.76s, Length: 552 chars
 Fireworks : Speed: 11.79 tokens/s, Total: 288 tokens, Prompt: 10 tokens, Completion: 278 tokens, Time: 23.57s, Latency: 2.69s, Length: 1338 chars
 Together  : Speed: 10.12 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Completion: 240 tokens, Time: 23.73s, Latency: 2.00s, Length: 1116 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T05:45:39.820Z
-Test prompt: What is the capital of France?
-DeepSeek: Error (Having an outage)
-DeepInfra : Speed: 9.58 tokens/s, Total: 289 tokens, Prompt: 10 tokens, Completion: 279 tokens, Time: 29.14s, Latency: 0.88s, Length: 1357 chars
-Fireworks : Speed: 11.53 tokens/s, Total: 190 tokens, Prompt: 10 tokens, Completion: 180 tokens, Time: 15.61s, Latency: 2.10s, Length: 836 chars
-Together  : Speed: 8.06 tokens/s, Total: 270 tokens, Prompt: 10 tokens, Completion: 260 tokens, Time: 32.25s, Latency: 1.02s, Length: 1216 chars
 ```
 
 Full outputs:

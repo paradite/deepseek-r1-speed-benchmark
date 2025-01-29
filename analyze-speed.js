@@ -1,5 +1,14 @@
-// Data from benchmark results
+// Data from benchmark results (last 5 runs without any errors)
 const benchmarkData = [
+  {
+    timestamp: '2025-01-29T07:20:31.774Z',
+    results: {
+      DeepSeek: 15.8,
+      DeepInfra: 6.61,
+      Fireworks: 20.32,
+      Together: 8.51,
+    },
+  },
   {
     timestamp: '2025-01-29T07:03:57.238Z',
     results: {
@@ -34,15 +43,6 @@ const benchmarkData = [
       DeepInfra: 9.21,
       Fireworks: 11.79,
       Together: 10.12,
-    },
-  },
-  {
-    timestamp: '2025-01-29T05:45:39.820Z',
-    results: {
-      DeepSeek: null, // Error during this run
-      DeepInfra: 9.58,
-      Fireworks: 11.53,
-      Together: 8.06,
     },
   },
 ];
