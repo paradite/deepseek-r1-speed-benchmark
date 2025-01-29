@@ -11,7 +11,7 @@ const providers = {
       apiKey: process.env.DEEPSEEK_API_KEY,
     }),
     model: 'deepseek-reasoner',
-    skip: true,
+    skip: false,
   },
   deepinfra: {
     name: 'DeepInfra',
@@ -159,6 +159,7 @@ async function runAllBenchmarks() {
 
   // Print final results
   console.log('\n=== Final Benchmark Results ===');
+  console.log('Current time:', new Date().toISOString());
   results.forEach((result) => {
     console.log(
       `${result.name}: Total: ${result.totalTokens} tokens, Prompt: ${result.promptTokens} tokens, Completion: ${result.completionTokens} tokens, Time: ${result.responseTime}s, Latency: ${result.firstResponseLatency}s, Speed: ${result.speed} tokens/s, Length: ${result.responseLength} chars`
