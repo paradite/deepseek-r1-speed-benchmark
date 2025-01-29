@@ -13,7 +13,7 @@ const providers = {
       apiKey: process.env.DEEPSEEK_API_KEY,
     }),
     model: 'deepseek-reasoner',
-    skip: false,
+    skip: true,
   },
   deepinfra: {
     name: 'DeepInfra',
@@ -22,7 +22,7 @@ const providers = {
       apiKey: process.env.DEEPINFRA_TOKEN,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
-    skip: false,
+    skip: true,
   },
   fireworks: {
     name: 'Fireworks',
@@ -31,7 +31,7 @@ const providers = {
       apiKey: process.env.FIREWORKS_API_KEY,
     }),
     model: 'accounts/fireworks/models/deepseek-r1',
-    skip: false,
+    skip: true,
   },
   together: {
     name: 'Together',
@@ -40,7 +40,7 @@ const providers = {
       apiKey: process.env.TOGETHER_API_KEY,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
-    skip: false,
+    skip: true,
   },
   chutes: {
     name: 'Chutes',
@@ -50,6 +50,15 @@ const providers = {
     }),
     model: 'deepseek-ai/DeepSeek-R1',
     skip: true, // requires TAO balance
+  },
+  hyperbolic: {
+    name: 'Hyperbolic',
+    client: new OpenAI({
+      baseURL: 'https://api.hyperbolic.xyz/v1',
+      apiKey: process.env.HYPERBOLIC_API_KEY,
+    }),
+    model: 'deepseek-ai/DeepSeek-R1',
+    skip: false,
   },
 };
 

@@ -50,6 +50,7 @@ const providerSpeeds = {
   DeepInfra: [],
   Fireworks: [],
   Together: [],
+  Hyperbolic: [],
 };
 
 benchmarkData.forEach((run) => {
@@ -92,6 +93,7 @@ benchmarkData.forEach((run) => {
       DeepInfra: [],
       Fireworks: [],
       Together: [],
+      Hyperbolic: [],
     };
   }
   Object.entries(run.results).forEach(([provider, speed]) => {

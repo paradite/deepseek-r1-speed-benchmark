@@ -10,6 +10,13 @@ Currently supports:
 - [DeepInfra](https://deepinfra.com/)
 - [Fireworks](https://fireworks.ai/)
 - [Together](https://www.together.ai/)
+- [Chutes](https://chutes.ai/)
+- [Hyperbolic](https://hyperbolic.xyz/)
+
+Watch list for DeepSeek R1 support:
+
+- [Groq](https://www.groq.com/)
+- [Cerebras](https://cerebras.ai/)
 
 ## Speed statistics
 
@@ -17,12 +24,13 @@ Statistics of the speed of the API via `analyze-speed.js`.
 
 ```
 === Overall Speed Statistics (tokens/second) ===
-Using latest 6 benchmark runs
+Using latest 7 benchmark runs
 
 DeepSeek  : Mean: 32.31, Median: 27.48, Min: 15.80, Max: 67.60, Runs: 6
 DeepInfra : Mean: 8.98, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 6
 Fireworks : Mean: 15.36, Median: 15.04, Min: 11.79, Max: 20.32, Runs: 6
 Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
+Hyperbolic: Mean: 20.22, Median: 20.22, Min: 20.22, Max: 20.22, Runs: 1
 
 === Daily Statistics ===
 
@@ -31,6 +39,7 @@ DeepSeek  : Mean: 32.31, Median: 27.48, Min: 15.80, Max: 67.60, Runs: 6
 DeepInfra : Mean: 8.98, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 6
 Fireworks : Mean: 15.36, Median: 15.04, Min: 11.79, Max: 20.32, Runs: 6
 Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
+Hyperbolic: Mean: 20.22, Median: 20.22, Min: 20.22, Max: 20.22, Runs: 1
 ```
 
 ## Sample output
@@ -38,6 +47,12 @@ Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
 Latest summary:
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-29T15:45:08.184Z
+Test prompt: What is the capital of France?
+
+Hyperbolic: Speed: 20.22 tokens/s, Total: 502 tokens, Prompt: 10 tokens, Completion: 492 tokens, Time: 24.34s, Latency: 1.21s, Length: 2390 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-29T14:03:41.164Z
 Test prompt: What is the capital of France?
@@ -113,6 +128,7 @@ Run the benchmark:
 ```bash
 npm run benchmark        # Regular benchmark
 npm run benchmark-show-output # Show the API response while benchmarking
+npm run analyze-speed     # Analyze the speed of the API
 ```
 
 The script will measure:

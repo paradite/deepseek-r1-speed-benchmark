@@ -1,0 +1,5 @@
+=== Final Benchmark Results ===
+Current time: 2025-01-29T15:45:08.184Z
+Test prompt: What is the capital of France?
+
+Hyperbolic: Speed: 20.22 tokens/s, Total: 502 tokens, Prompt: 10 tokens, Completion: 492 tokens, Time: 24.34s, Latency: 1.21s, Length: 2390 chars
