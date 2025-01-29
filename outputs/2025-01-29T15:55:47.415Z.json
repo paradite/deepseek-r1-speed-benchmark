@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-01-29T15:55:47.415Z",
+  "results": {
+    "Hyperbolic": 25.47
+  },
+  "details": [
+    {
+      "name": "Hyperbolic",
+      "totalTokens": 308,
+      "promptTokens": 10,
+      "completionTokens": 298,
+      "responseTime": "11.70",
+      "firstResponseLatency": "1.02",
+      "speed": "25.47",
+      "responseLength": 1372
+    }
+  ]
+}

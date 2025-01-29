@@ -24,13 +24,13 @@ Statistics of the speed of the API via `analyze-speed.js`.
 
 ```
 === Overall Speed Statistics (tokens/second) ===
-Using latest 7 benchmark runs
+Using latest 8 benchmark runs
 
 DeepSeek  : Mean: 32.31, Median: 27.48, Min: 15.80, Max: 67.60, Runs: 6
 DeepInfra : Mean: 8.98, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 6
 Fireworks : Mean: 15.36, Median: 15.04, Min: 11.79, Max: 20.32, Runs: 6
 Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
-Hyperbolic: Mean: 20.22, Median: 20.22, Min: 20.22, Max: 20.22, Runs: 1
+Hyperbolic: Mean: 22.84, Median: 22.84, Min: 20.22, Max: 25.47, Runs: 2
 
 === Daily Statistics ===
 
@@ -39,7 +39,7 @@ DeepSeek  : Mean: 32.31, Median: 27.48, Min: 15.80, Max: 67.60, Runs: 6
 DeepInfra : Mean: 8.98, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 6
 Fireworks : Mean: 15.36, Median: 15.04, Min: 11.79, Max: 20.32, Runs: 6
 Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
-Hyperbolic: Mean: 20.22, Median: 20.22, Min: 20.22, Max: 20.22, Runs: 1
+Hyperbolic: Mean: 22.84, Median: 22.84, Min: 20.22, Max: 25.47, Runs: 2
 ```
 
 ## Sample output
@@ -47,6 +47,12 @@ Hyperbolic: Mean: 20.22, Median: 20.22, Min: 20.22, Max: 20.22, Runs: 1
 Latest summary:
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-29T15:55:47.415Z
+Test prompt: What is the capital of France?
+
+Hyperbolic: Speed: 25.47 tokens/s, Total: 308 tokens, Prompt: 10 tokens, Completion: 298 tokens, Time: 11.70s, Latency: 1.02s, Length: 1372 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-29T15:45:08.184Z
 Test prompt: What is the capital of France?
