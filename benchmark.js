@@ -40,6 +40,15 @@ const providers = {
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
   },
+  chutes: {
+    name: 'Chutes',
+    client: new OpenAI({
+      baseURL: 'https://chutes-deepseek-ai-deepseek-r1.chutes.ai/v1',
+      apiKey: process.env.CHUTES_API_KEY,
+    }),
+    model: 'deepseek-ai/DeepSeek-R1',
+    skip: true, // requires TAO balance
+  },
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";

@@ -1,0 +1,35 @@
+Running benchmarks...
+showOutput: false
+testPrompt: What is the capital of France?
+
+Starting DeepSeek API speed benchmark...
+Receiving response... 2335 chars
+
+DeepSeek: Total tokens: 507, Prompt tokens: 12, Completion tokens: 495, Response time: 7.32s, First response latency: 1.22s, Speed: 67.60 tokens/s, Response length: 2335 chars
+
+Starting DeepInfra API speed benchmark...
+Receiving response... 909 chars
+
+DeepInfra: Total tokens: 208, Prompt tokens: 10, Completion tokens: 198, Response time: 20.73s, First response latency: 0.83s, Speed: 9.55 tokens/s, Response length: 909 chars
+
+Starting Fireworks API speed benchmark...
+Receiving response...unknown chunk
+{ role: 'assistant' }
+Receiving response... 822 chars
+
+Fireworks: Total tokens: 200, Prompt tokens: 10, Completion tokens: 190, Response time: 11.92s, First response latency: 3.45s, Speed: 15.94 tokens/s, Response length: 822 chars
+
+Starting Together API speed benchmark...
+Receiving response... 916 chars
+
+Together: Total tokens: 208, Prompt tokens: 10, Completion tokens: 198, Response time: 21.97s, First response latency: 1.09s, Speed: 9.01 tokens/s, Response length: 916 chars
+
+Skipping Chutes as configured...
+
+=== Final Benchmark Results ===
+Current time: 2025-01-29T06:51:22.327Z
+Test prompt: What is the capital of France?
+DeepSeek  : Speed: 67.60 tokens/s, Total: 507 tokens, Prompt: 12 tokens, Completion: 495 tokens, Time: 7.32s, Latency: 1.22s, Length: 2335 chars
+DeepInfra : Speed: 9.55 tokens/s, Total: 208 tokens, Prompt: 10 tokens, Completion: 198 tokens, Time: 20.73s, Latency: 0.83s, Length: 909 chars
+Fireworks : Speed: 15.94 tokens/s, Total: 200 tokens, Prompt: 10 tokens, Completion: 190 tokens, Time: 11.92s, Latency: 3.45s, Length: 822 chars
+Together  : Speed: 9.01 tokens/s, Total: 208 tokens, Prompt: 10 tokens, Completion: 198 tokens, Time: 21.97s, Latency: 1.09s, Length: 916 chars

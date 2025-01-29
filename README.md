@@ -46,6 +46,14 @@ Latest summary:
 
 ```
 === Final Benchmark Results ===
+Current time: 2025-01-29T06:51:22.327Z
+Test prompt: What is the capital of France?
+DeepSeek  : Speed: 67.60 tokens/s, Total: 507 tokens, Prompt: 12 tokens, Completion: 495 tokens, Time: 7.32s, Latency: 1.22s, Length: 2335 chars
+DeepInfra : Speed: 9.55 tokens/s, Total: 208 tokens, Prompt: 10 tokens, Completion: 198 tokens, Time: 20.73s, Latency: 0.83s, Length: 909 chars
+Fireworks : Speed: 15.94 tokens/s, Total: 200 tokens, Prompt: 10 tokens, Completion: 190 tokens, Time: 11.92s, Latency: 3.45s, Length: 822 chars
+Together  : Speed: 9.01 tokens/s, Total: 208 tokens, Prompt: 10 tokens, Completion: 198 tokens, Time: 21.97s, Latency: 1.09s, Length: 916 chars
+
+=== Final Benchmark Results ===
 Current time: 2025-01-29T05:56:50.553Z
 Test prompt: What is the capital of France?
 DeepSeek  : Speed: 33.98 tokens/s, Total: 252 tokens, Prompt: 12 tokens, Completion: 240 tokens, Time: 7.06s, Latency: 1.59s, Length: 1128 chars
@@ -76,6 +84,7 @@ Full outputs:
 - [outputs/2025-01-29T05:45:39.820Z.txt](outputs/2025-01-29T05:45:39.820Z.txt)
 - [outputs/2025-01-29T05:49:32.626Z.txt](outputs/2025-01-29T05:49:32.626Z.txt)
 - [outputs/2025-01-29T05:56:50.553Z.txt](outputs/2025-01-29T05:56:50.553Z.txt)
+- [outputs/2025-01-29T06:51:22.327Z.txt](outputs/2025-01-29T06:51:22.327Z.txt)
 
 ## How it works
 
