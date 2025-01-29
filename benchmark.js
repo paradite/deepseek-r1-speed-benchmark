@@ -43,8 +43,8 @@ const providers = {
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";
-// const testPrompt = 'What is the capital of France?';
-const testPrompt = 'Hello, how are you?';
+const testPrompt = 'What is the capital of France?';
+// const testPrompt = 'Hello, how are you?';
 
 async function measureSpeed(provider, showOutput = false) {
   const startTime = Date.now();
@@ -160,9 +160,16 @@ async function runAllBenchmarks() {
   // Print final results
   console.log('\n=== Final Benchmark Results ===');
   console.log('Current time:', new Date().toISOString());
+  console.log('Test prompt:', testPrompt);
   results.forEach((result) => {
     console.log(
-      `${result.name}: Total: ${result.totalTokens} tokens, Prompt: ${result.promptTokens} tokens, Completion: ${result.completionTokens} tokens, Time: ${result.responseTime}s, Latency: ${result.firstResponseLatency}s, Speed: ${result.speed} tokens/s, Length: ${result.responseLength} chars`
+      `${result.name.padEnd(10)}: Speed: ${result.speed} tokens/s, Total: ${
+        result.totalTokens
+      } tokens, Prompt: ${result.promptTokens} tokens, Completion: ${
+        result.completionTokens
+      } tokens, Time: ${result.responseTime}s, Latency: ${
+        result.firstResponseLatency
+      }s, Length: ${result.responseLength} chars`
     );
   });
 }
