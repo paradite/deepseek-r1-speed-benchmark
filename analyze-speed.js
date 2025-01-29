@@ -105,7 +105,7 @@ benchmarkData.forEach((run) => {
 
 // Display daily statistics
 Object.entries(resultsByDate)
-  .sort((a, b) => new Date(a[0]) - new Date(b[0]))
+  .sort((a, b) => new Date(b[0]) - new Date(a[0]))
   .forEach(([date, providers]) => {
     console.log(`\nDate: ${date}`);
     Object.entries(providers).forEach(([provider, speeds]) => {

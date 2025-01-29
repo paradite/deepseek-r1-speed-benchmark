@@ -13,7 +13,7 @@ const providers = {
       apiKey: process.env.DEEPSEEK_API_KEY,
     }),
     model: 'deepseek-reasoner',
-    skip: true,
+    skip: false,
   },
   deepinfra: {
     name: 'DeepInfra',
@@ -22,7 +22,7 @@ const providers = {
       apiKey: process.env.DEEPINFRA_TOKEN,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
-    skip: true,
+    skip: false,
   },
   fireworks: {
     name: 'Fireworks',
@@ -31,7 +31,7 @@ const providers = {
       apiKey: process.env.FIREWORKS_API_KEY,
     }),
     model: 'accounts/fireworks/models/deepseek-r1',
-    skip: true,
+    skip: false,
   },
   together: {
     name: 'Together',
@@ -40,7 +40,7 @@ const providers = {
       apiKey: process.env.TOGETHER_API_KEY,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
-    skip: true,
+    skip: false,
   },
   chutes: {
     name: 'Chutes',
