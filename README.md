@@ -33,6 +33,12 @@ The script will measure:
 - Tokens per second
 - Prompt and completion token counts
 
+## Sample output
+
+Jan 29, 2025
+
+- [outputs/2025-01-29T05:29:26.660Z.md](outputs/2025-01-29T05:29:26.660Z.md)
+
 ## How it works
 
 The benchmark script sends a standardized prompt to the DeepSeek API and measures:
