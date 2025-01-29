@@ -42,7 +42,18 @@ The script will measure:
 
 ## Sample output
 
-Jan 29, 2025
+Final summary:
+
+```
+=== Final Benchmark Results ===
+Current time: 2025-01-29T05:29:26.660Z
+DeepSeek: Total: 156 tokens, Prompt: 11 tokens, Completion: 145 tokens, Time: 5.09s, Latency: 1.22s, Speed: 28.47 tokens/s, Length: 617 chars
+DeepInfra: Total: 53 tokens, Prompt: 9 tokens, Completion: 44 tokens, Time: 5.29s, Latency: 1.01s, Speed: 8.32 tokens/s, Length: 207 chars
+Fireworks: Total: 53 tokens, Prompt: 9 tokens, Completion: 44 tokens, Time: 5.86s, Latency: 2.79s, Speed: 7.51 tokens/s, Length: 171 chars
+Together: Total: 53 tokens, Prompt: 9 tokens, Completion: 44 tokens, Time: 5.42s, Latency: 1.63s, Speed: 8.12 tokens/s, Length: 189 chars
+```
+
+Full output:
 
 - [outputs/2025-01-29T05:29:26.660Z.txt](outputs/2025-01-29T05:29:26.660Z.txt)
 
