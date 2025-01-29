@@ -37,7 +37,7 @@ The script will measure:
 
 Jan 29, 2025
 
-- [outputs/2025-01-29T05:29:26.660Z.md](outputs/2025-01-29T05:29:26.660Z.md)
+- [outputs/2025-01-29T05:29:26.660Z.txt](outputs/2025-01-29T05:29:26.660Z.txt)
 
 ## How it works
 
