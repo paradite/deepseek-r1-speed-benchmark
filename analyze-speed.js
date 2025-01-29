@@ -1,51 +1,5 @@
-// Data from benchmark results (last 5 runs without any errors)
-const benchmarkData = [
-  {
-    timestamp: '2025-01-29T07:20:31.774Z',
-    results: {
-      DeepSeek: 15.8,
-      DeepInfra: 6.61,
-      Fireworks: 20.32,
-      Together: 8.51,
-    },
-  },
-  {
-    timestamp: '2025-01-29T07:03:57.238Z',
-    results: {
-      DeepSeek: 20.0,
-      DeepInfra: 9.76,
-      Fireworks: 17.51,
-      Together: 9.18,
-    },
-  },
-  {
-    timestamp: '2025-01-29T06:51:22.327Z',
-    results: {
-      DeepSeek: 67.6,
-      DeepInfra: 9.55,
-      Fireworks: 15.94,
-      Together: 9.01,
-    },
-  },
-  {
-    timestamp: '2025-01-29T05:56:50.553Z',
-    results: {
-      DeepSeek: 33.98,
-      DeepInfra: 9.37,
-      Fireworks: 12.43,
-      Together: 10.52,
-    },
-  },
-  {
-    timestamp: '2025-01-29T05:49:32.626Z',
-    results: {
-      DeepSeek: 35.48,
-      DeepInfra: 9.21,
-      Fireworks: 11.79,
-      Together: 10.12,
-    },
-  },
-];
+import fs from 'fs';
+import path from 'path';
 
 // Helper function to calculate mean
 function calculateMean(numbers) {
@@ -64,6 +18,32 @@ function calculateMedian(numbers) {
   return validNumbers[mid];
 }
 
+// Read all JSON files from outputs directory
+function getLatestBenchmarkData(limit) {
+  const outputsDir = path.join('.', 'outputs');
+  const files = fs
+    .readdirSync(outputsDir)
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => ({
+      name: file,
+      time: new Date(file.replace('.json', '')).getTime(),
+    }))
+    .sort((a, b) => b.time - a.time) // Sort by timestamp descending
+    .slice(0, limit); // Take only the latest n files
+
+  return files.map((file) => {
+    const filePath = path.join(outputsDir, file.name);
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return {
+      timestamp: data.timestamp,
+      results: data.results,
+    };
+  });
+}
+
+// Get benchmark data from JSON files
+const benchmarkData = getLatestBenchmarkData(10);
+
 // Get all speeds for each provider
 const providerSpeeds = {
   DeepSeek: [],
@@ -80,6 +60,7 @@ benchmarkData.forEach((run) => {
 
 // Calculate and display statistics
 console.log('=== Speed Statistics (tokens/second) ===');
+console.log('Using latest', benchmarkData.length, 'benchmark runs\n');
 Object.entries(providerSpeeds).forEach(([provider, speeds]) => {
   const mean = calculateMean(speeds);
   const median = calculateMedian(speeds);

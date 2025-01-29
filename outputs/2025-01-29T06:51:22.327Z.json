@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-01-29T06:51:22.327Z",
+  "results": {
+    "DeepSeek": 67.6,
+    "DeepInfra": 9.55,
+    "Fireworks": 15.94,
+    "Together": 9.01
+  },
+  "details": [
+    {
+      "name": "DeepSeek",
+      "speed": "67.60",
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    },
+    {
+      "name": "DeepInfra",
+      "speed": "9.55",
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    },
+    {
+      "name": "Fireworks",
+      "speed": "15.94",
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    },
+    {
+      "name": "Together",
+      "speed": "9.01",
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    }
+  ]
+}

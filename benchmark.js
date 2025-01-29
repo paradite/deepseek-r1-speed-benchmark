@@ -1,5 +1,7 @@
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
 
 dotenv.config();
 
@@ -166,21 +168,47 @@ async function runAllBenchmarks() {
     }
   }
 
-  // Print final results
-  console.log('\n=== Final Benchmark Results ===');
-  console.log('Current time:', new Date().toISOString());
-  console.log('Test prompt:', testPrompt);
+  const timestamp = new Date().toISOString();
+
+  // Create JSON output
+  const jsonData = {
+    timestamp,
+    results: Object.fromEntries(
+      results.map((result) => [result.name, parseFloat(result.speed)])
+    ),
+    details: results,
+  };
+
+  // Write JSON file
+  const jsonOutputPath = path.join('outputs', `${timestamp}.json`);
+  fs.writeFileSync(jsonOutputPath, JSON.stringify(jsonData, null, 2));
+  console.log(`\nJSON results written to ${jsonOutputPath}`);
+
+  // Create text output - only the final results
+  let output = `=== Final Benchmark Results ===\n`;
+  output += `Current time: ${timestamp}\n`;
+  output += `Test prompt: ${testPrompt}\n\n`;
+
+  // Sort results by speed in descending order
+  results.sort((a, b) => parseFloat(b.speed) - parseFloat(a.speed));
+
   results.forEach((result) => {
-    console.log(
-      `${result.name.padEnd(10)}: Speed: ${result.speed} tokens/s, Total: ${
-        result.totalTokens
-      } tokens, Prompt: ${result.promptTokens} tokens, Completion: ${
-        result.completionTokens
-      } tokens, Time: ${result.responseTime}s, Latency: ${
-        result.firstResponseLatency
-      }s, Length: ${result.responseLength} chars`
-    );
+    output += `${result.name.padEnd(10)}: Speed: ${result.speed} tokens/s, Total: ${
+      result.totalTokens
+    } tokens, Prompt: ${result.promptTokens} tokens, Completion: ${
+      result.completionTokens
+    } tokens, Time: ${result.responseTime}s, Latency: ${
+      result.firstResponseLatency
+    }s, Length: ${result.responseLength} chars\n`;
   });
+
+  // Write text file
+  const txtOutputPath = path.join('outputs', `${timestamp}.txt`);
+  fs.writeFileSync(txtOutputPath, output);
+  console.log(`Text results written to ${txtOutputPath}`);
+
+  // Print final results to console as well
+  console.log(output);
 }
 
 runAllBenchmarks();

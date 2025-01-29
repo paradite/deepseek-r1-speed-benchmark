@@ -48,17 +48,28 @@ Statistics of the speed of the API via `analyze-speed.js`.
 
 ```
 === Speed Statistics (tokens/second) ===
-DeepSeek  : Mean: 34.57, Median: 33.98
-DeepInfra : Mean: 8.90, Median: 9.37
-Fireworks : Mean: 15.60, Median: 15.94
-Together  : Mean: 9.47, Median: 9.18
+Using latest 6 benchmark runs
+
+DeepSeek  : Mean: 32.31, Median: 27.48
+DeepInfra : Mean: 8.98, Median: 9.37
+Fireworks : Mean: 15.36, Median: 15.04
+Together  : Mean: 9.15, Median: 9.09
 ```
 
 ## Sample output
 
-Latest summary (last 5 runs without any errors):
+Latest summary:
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-29T14:03:41.164Z
+Test prompt: What is the capital of France?
+
+DeepSeek  : Speed: 20.98 tokens/s, Total: 710 tokens, Prompt: 12 tokens, Completion: 698 tokens, Time: 33.27s, Latency: 1.42s, Length: 3293 chars
+Fireworks : Speed: 14.15 tokens/s, Total: 270 tokens, Prompt: 10 tokens, Completion: 260 tokens, Time: 18.38s, Latency: 1.80s, Length: 1140 chars
+DeepInfra : Speed: 9.37 tokens/s, Total: 294 tokens, Prompt: 10 tokens, Completion: 284 tokens, Time: 30.32s, Latency: 1.07s, Length: 1317 chars
+Together  : Speed: 7.57 tokens/s, Total: 328 tokens, Prompt: 10 tokens, Completion: 318 tokens, Time: 42.02s, Latency: 1.36s, Length: 1429 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-29T07:20:31.774Z
 Test prompt: What is the capital of France?
@@ -102,11 +113,7 @@ Together  : Speed: 10.12 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Complet
 
 Full outputs:
 
-- [outputs/2025-01-29T05:29:26.660Z.txt](outputs/2025-01-29T05:29:26.660Z.txt)
-- [outputs/2025-01-29T05:45:39.820Z.txt](outputs/2025-01-29T05:45:39.820Z.txt)
-- [outputs/2025-01-29T05:49:32.626Z.txt](outputs/2025-01-29T05:49:32.626Z.txt)
-- [outputs/2025-01-29T05:56:50.553Z.txt](outputs/2025-01-29T05:56:50.553Z.txt)
-- [outputs/2025-01-29T06:51:22.327Z.txt](outputs/2025-01-29T06:51:22.327Z.txt)
+- Check [outputs](outputs) directory for full outputs
 
 ## How it works
 
