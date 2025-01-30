@@ -60,38 +60,51 @@ benchmarkData.forEach((run) => {
   });
 });
 
-// Calculate and display statistics
-console.log('=== Overall Speed Statistics (tokens/second) ===');
-console.log('Using latest', benchmarkData.length, 'benchmark runs\n');
+// Helper function to calculate statistics for a provider's speeds
+function calculateProviderStats(provider, speeds) {
+  if (speeds.length > 0) {
+    const mean = calculateMean(speeds);
+    const median = calculateMedian(speeds);
+    const min = Math.min(...speeds);
+    const max = Math.max(...speeds);
+    return { provider, mean, median, min, max, runs: speeds.length };
+  }
+  return null;
+}
 
-// Show the overall aggregate statistics with the same format as daily
-const providerStats = Object.entries(providerSpeeds)
-  .map(([provider, speeds]) => {
-    const validSpeeds = speeds.filter((s) => s !== null);
-    if (validSpeeds.length > 0) {
-      const mean = calculateMean(validSpeeds);
-      const median = calculateMedian(validSpeeds);
-      const min = Math.min(...validSpeeds);
-      const max = Math.max(...validSpeeds);
-      return { provider, mean, median, min, max, runs: validSpeeds.length };
-    }
+// Helper function to format statistics line
+function formatStatsLine({ provider, mean, median, min, max, runs }) {
+  return `${provider.padEnd(10)}: Median: ${median.toFixed(2)}, Mean: ${mean.toFixed(
+    2
+  )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${runs}`;
+}
+
+// Helper function to process daily statistics
+function processDailyStats(providers) {
+  const totalRuns = Object.values(providers).reduce(
+    (acc, speeds) => acc + speeds.length,
+    0
+  );
+
+  // Skip dates with less than 5 total runs
+  if (totalRuns < 5) {
     return null;
-  })
+  }
+
+  return Object.entries(providers)
+    .map(([provider, speeds]) => calculateProviderStats(provider, speeds))
+    .filter(Boolean)
+    .sort((a, b) => b.median - a.median);
+}
+
+// Calculate overall statistics
+const providerStats = Object.entries(providerSpeeds)
+  .map(([provider, speeds]) => calculateProviderStats(provider, speeds))
   .filter(Boolean)
   .sort((a, b) => b.median - a.median);
 
-providerStats.forEach(({ provider, mean, median, min, max, runs }) => {
-  console.log(
-    `${provider.padEnd(10)}: Median: ${median.toFixed(2)}, Mean: ${mean.toFixed(
-      2
-    )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${runs}`
-  );
-});
-
 // Aggregate results by date
-console.log('\n=== Daily Statistics ===');
 const resultsByDate = {};
-
 benchmarkData.forEach((run) => {
   const date = new Date(run.timestamp).toLocaleDateString();
   if (!resultsByDate[date]) {
@@ -111,31 +124,61 @@ benchmarkData.forEach((run) => {
   });
 });
 
-// Display daily statistics
+// Process daily statistics
+const dailyStats = {};
 Object.entries(resultsByDate)
   .sort((a, b) => new Date(b[0]) - new Date(a[0]))
   .forEach(([date, providers]) => {
-    console.log(`\nDate: ${date}`);
-    // Calculate stats for each provider and sort by median
-    const dailyStats = Object.entries(providers)
-      .map(([provider, speeds]) => {
-        if (speeds.length > 0) {
-          const mean = calculateMean(speeds);
-          const median = calculateMedian(speeds);
-          const min = Math.min(...speeds);
-          const max = Math.max(...speeds);
-          return { provider, mean, median, min, max, runs: speeds.length };
-        }
-        return null;
-      })
-      .filter(Boolean)
-      .sort((a, b) => b.median - a.median);
-
-    dailyStats.forEach(({ provider, mean, median, min, max, runs }) => {
-      console.log(
-        `${provider.padEnd(10)}: Median: ${median.toFixed(2)}, Mean: ${mean.toFixed(
-          2
-        )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${runs}`
-      );
-    });
+    const stats = processDailyStats(providers);
+    if (stats) {
+      dailyStats[date] = stats;
+    }
   });
+
+// Function to display and update statistics
+function displayAndUpdateStats(overallStats, dailyStats) {
+  // Generate the statistics content
+  let content = '';
+
+  // Overall statistics section
+  const overallSection =
+    '=== Overall Speed Statistics (tokens/second) ===\n' +
+    `Using latest ${benchmarkData.length} benchmark runs\n\n` +
+    overallStats.map(formatStatsLine).join('\n');
+
+  // Daily statistics section
+  const dailySection =
+    '\n\n=== Daily Statistics ===\n' +
+    Object.entries(dailyStats)
+      .sort((a, b) => new Date(b[0]) - new Date(a[0]))
+      .map(([date, stats]) => `\nDate: ${date}\n${stats.map(formatStatsLine).join('\n')}`)
+      .join('\n');
+
+  // Combine sections
+  content = overallSection + dailySection;
+
+  // Log to console
+  console.log(content);
+
+  // Update README
+  const readmePath = path.join('.', 'README.md');
+  let readmeContent = fs.readFileSync(readmePath, 'utf8');
+
+  const readmeSection =
+    '## Speed statistics\n\n' +
+    'Statistics of the speed of the API automatically generated by running `analyze-speed.js`.\n\n' +
+    '```\n' +
+    content +
+    '\n```\n';
+
+  // Replace the existing Speed statistics section
+  // Match from '## Speed statistics' until the closing code block marker
+  const regex = /## Speed statistics[\s\S]*?```[\s\S]*?```\n/;
+  readmeContent = readmeContent.replace(regex, readmeSection);
+
+  // Write the updated content back to README.md
+  fs.writeFileSync(readmePath, readmeContent, 'utf8');
+}
+
+// Display statistics and update README
+displayAndUpdateStats(providerStats, dailyStats);
