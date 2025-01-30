@@ -13,6 +13,11 @@ Currently supports:
 - [Chutes](https://chutes.ai/)
 - [Hyperbolic](https://hyperbolic.xyz/)
 
+TODO:
+
+- [Nebius](https://nebius.com/)
+- [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
+
 Watch list for DeepSeek R1 support:
 
 - [Groq](https://www.groq.com/)
