@@ -1,0 +1,9 @@
+=== Final Benchmark Results ===
+Current time: 2025-01-30T02:30:37.950Z
+Test prompt: What is the capital of France?
+
+Fireworks : Speed: 20.55 tokens/s, Total: 242 tokens, Prompt: 10 tokens, Completion: 232 tokens, Time: 11.29s, Latency: 2.37s, Length: 1060 chars
+Hyperbolic: Speed: 12.55 tokens/s, Total: 320 tokens, Prompt: 10 tokens, Completion: 310 tokens, Time: 24.70s, Latency: 1.37s, Length: 1452 chars
+Together  : Speed: 12.51 tokens/s, Total: 376 tokens, Prompt: 10 tokens, Completion: 366 tokens, Time: 29.27s, Latency: 0.88s, Length: 1802 chars
+DeepSeek  : Speed: 11.28 tokens/s, Total: 297 tokens, Prompt: 12 tokens, Completion: 285 tokens, Time: 25.27s, Latency: 4.27s, Length: 1359 chars
+DeepInfra : Speed: 7.19 tokens/s, Total: 254 tokens, Prompt: 10 tokens, Completion: 244 tokens, Time: 33.94s, Latency: 1.11s, Length: 1149 chars
