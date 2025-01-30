@@ -12,11 +12,11 @@ Currently supports:
 - [Together](https://www.together.ai/)
 - [Chutes](https://chutes.ai/)
 - [Hyperbolic](https://hyperbolic.xyz/)
+- [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
 
 TODO:
 
 - [Nebius](https://nebius.com/)
-- [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
 
 Watch list for DeepSeek R1 support:
 

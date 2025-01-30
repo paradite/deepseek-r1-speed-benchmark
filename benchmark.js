@@ -60,6 +60,16 @@ const providers = {
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
   },
+  azure: {
+    name: 'Azure',
+    longName: 'Azure AI Foundry',
+    client: new OpenAI({
+      baseURL: process.env.AZURE_AI_FOUNDRY_ENDPOINT,
+      apiKey: process.env.AZURE_AI_FOUNDRY_API_KEY,
+    }),
+    model: 'random-string', // does not matter since URL is already model specific
+    skip: false,
+  },
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";

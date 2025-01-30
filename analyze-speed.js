@@ -51,6 +51,7 @@ const providerSpeeds = {
   Fireworks: [],
   Together: [],
   Hyperbolic: [],
+  Azure: [],
 };
 
 benchmarkData.forEach((run) => {
@@ -94,6 +95,7 @@ benchmarkData.forEach((run) => {
       Fireworks: [],
       Together: [],
       Hyperbolic: [],
+      Azure: [],
     };
   }
   Object.entries(run.results).forEach(([provider, speed]) => {
