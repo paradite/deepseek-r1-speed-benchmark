@@ -122,7 +122,7 @@ Object.entries(resultsByDate)
           )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${speeds.length}`
         );
       } else {
-        console.log(`${provider.padEnd(10)}: No data`);
+        // console.log(`${provider.padEnd(10)}: No data`);
       }
     });
   });

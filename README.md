@@ -31,32 +31,45 @@ Statistics of the speed of the API via `analyze-speed.js`.
 === Overall Speed Statistics (tokens/second) ===
 Using latest 10 benchmark runs
 
-DeepSeek  : Mean: 28.00, Median: 20.49, Min: 11.28, Max: 67.60, Runs: 8
-DeepInfra : Mean: 8.51, Median: 9.29, Min: 6.61, Max: 9.76, Runs: 8
-Fireworks : Mean: 16.05, Median: 15.81, Min: 11.79, Max: 20.55, Runs: 8
-Together  : Mean: 9.51, Median: 9.09, Min: 7.57, Max: 12.51, Runs: 8
-Hyperbolic: Mean: 22.38, Median: 22.84, Min: 12.55, Max: 31.26, Runs: 4
+DeepSeek  : Mean: 29.40, Median: 20.49, Min: 11.28, Max: 67.60, Runs: 8
+DeepInfra : Mean: 8.35, Median: 8.63, Min: 6.61, Max: 9.76, Runs: 8
+Fireworks : Mean: 17.16, Median: 16.73, Min: 12.43, Max: 20.72, Runs: 8
+Together  : Mean: 10.57, Median: 9.09, Min: 7.57, Max: 18.58, Runs: 8
+Hyperbolic: Mean: 19.34, Median: 20.22, Min: 7.21, Max: 31.26, Runs: 5
+Azure     : Mean: 3.97, Median: 3.97, Min: 3.97, Max: 3.97, Runs: 1
 
 === Daily Statistics ===
 
 Date: 1/30/2025
-DeepSeek  : Mean: 15.07, Median: 15.07, Min: 11.28, Max: 18.86, Runs: 2
-DeepInfra : Mean: 7.12, Median: 7.12, Min: 7.05, Max: 7.19, Runs: 2
-Fireworks : Mean: 18.12, Median: 18.12, Min: 15.68, Max: 20.55, Runs: 2
-Together  : Mean: 10.60, Median: 10.60, Min: 8.69, Max: 12.51, Runs: 2
-Hyperbolic: Mean: 21.91, Median: 21.91, Min: 12.55, Max: 31.26, Runs: 2
+DeepSeek  : Mean: 25.62, Median: 18.86, Min: 11.28, Max: 46.72, Runs: 3
+DeepInfra : Mean: 7.38, Median: 7.19, Min: 7.05, Max: 7.89, Runs: 3
+Fireworks : Mean: 18.98, Median: 20.55, Min: 15.68, Max: 20.72, Runs: 3
+Together  : Mean: 13.26, Median: 12.51, Min: 8.69, Max: 18.58, Runs: 3
+Hyperbolic: Mean: 17.01, Median: 12.55, Min: 7.21, Max: 31.26, Runs: 3
+Azure     : Mean: 3.97, Median: 3.97, Min: 3.97, Max: 3.97, Runs: 1
 
 Date: 1/29/2025
-DeepSeek  : Mean: 32.31, Median: 27.48, Min: 15.80, Max: 67.60, Runs: 6
-DeepInfra : Mean: 8.98, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 6
-Fireworks : Mean: 15.36, Median: 15.04, Min: 11.79, Max: 20.32, Runs: 6
-Together  : Mean: 9.15, Median: 9.09, Min: 7.57, Max: 10.52, Runs: 6
+DeepSeek  : Mean: 31.67, Median: 20.98, Min: 15.80, Max: 67.60, Runs: 5
+DeepInfra : Mean: 8.93, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 5
+Fireworks : Mean: 16.07, Median: 15.94, Min: 12.43, Max: 20.32, Runs: 5
+Together  : Mean: 8.96, Median: 9.01, Min: 7.57, Max: 10.52, Runs: 5
 Hyperbolic: Mean: 22.84, Median: 22.84, Min: 20.22, Max: 25.47, Runs: 2
 ```
 
-## Sample output
+## Sample recent outputs
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-30T06:31:40.351Z
+Test prompt: What is the capital of France?
+
+DeepSeek  : Speed: 46.72 tokens/s, Total: 273 tokens, Prompt: 12 tokens, Completion: 261 tokens, Time: 5.59s, Latency: 1.32s, Length: 1255 chars
+Fireworks : Speed: 20.72 tokens/s, Total: 240 tokens, Prompt: 10 tokens, Completion: 230 tokens, Time: 11.10s, Latency: 2.30s, Length: 1067 chars
+Together  : Speed: 18.58 tokens/s, Total: 413 tokens, Prompt: 10 tokens, Completion: 403 tokens, Time: 21.69s, Latency: 0.79s, Length: 1942 chars
+DeepInfra : Speed: 7.89 tokens/s, Total: 482 tokens, Prompt: 10 tokens, Completion: 472 tokens, Time: 59.82s, Latency: 1.20s, Length: 2273 chars
+Hyperbolic: Speed: 7.21 tokens/s, Total: 231 tokens, Prompt: 10 tokens, Completion: 221 tokens, Time: 30.66s, Latency: 1.00s, Length: 1005 chars
+Azure     : Speed: 3.97 tokens/s, Total: 217 tokens, Prompt: 10 tokens, Completion: 207 tokens, Time: 52.18s, Latency: 1.27s, Length: 989 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-30T02:30:37.950Z
 Test prompt: What is the capital of France?
@@ -76,67 +89,6 @@ DeepSeek  : Speed: 18.86 tokens/s, Total: 248 tokens, Prompt: 12 tokens, Complet
 Fireworks : Speed: 15.68 tokens/s, Total: 541 tokens, Prompt: 10 tokens, Completion: 531 tokens, Time: 33.87s, Latency: 2.44s, Length: 2438 chars
 Together  : Speed: 8.69 tokens/s, Total: 201 tokens, Prompt: 10 tokens, Completion: 191 tokens, Time: 21.97s, Latency: 2.75s, Length: 872 chars
 DeepInfra : Speed: 7.05 tokens/s, Total: 383 tokens, Prompt: 10 tokens, Completion: 373 tokens, Time: 52.90s, Latency: 2.03s, Length: 1778 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T15:55:47.415Z
-Test prompt: What is the capital of France?
-
-Hyperbolic: Speed: 25.47 tokens/s, Total: 308 tokens, Prompt: 10 tokens, Completion: 298 tokens, Time: 11.70s, Latency: 1.02s, Length: 1372 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T15:45:08.184Z
-Test prompt: What is the capital of France?
-
-Hyperbolic: Speed: 20.22 tokens/s, Total: 502 tokens, Prompt: 10 tokens, Completion: 492 tokens, Time: 24.34s, Latency: 1.21s, Length: 2390 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T14:03:41.164Z
-Test prompt: What is the capital of France?
-
-DeepSeek  : Speed: 20.98 tokens/s, Total: 710 tokens, Prompt: 12 tokens, Completion: 698 tokens, Time: 33.27s, Latency: 1.42s, Length: 3293 chars
-Fireworks : Speed: 14.15 tokens/s, Total: 270 tokens, Prompt: 10 tokens, Completion: 260 tokens, Time: 18.38s, Latency: 1.80s, Length: 1140 chars
-DeepInfra : Speed: 9.37 tokens/s, Total: 294 tokens, Prompt: 10 tokens, Completion: 284 tokens, Time: 30.32s, Latency: 1.07s, Length: 1317 chars
-Together  : Speed: 7.57 tokens/s, Total: 328 tokens, Prompt: 10 tokens, Completion: 318 tokens, Time: 42.02s, Latency: 1.36s, Length: 1429 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T07:20:31.774Z
-Test prompt: What is the capital of France?
-DeepSeek  : Speed: 15.80 tokens/s, Total: 295 tokens, Prompt: 12 tokens, Completion: 283 tokens, Time: 17.91s, Latency: 4.37s, Length: 1331 chars
-DeepInfra : Speed: 6.61 tokens/s, Total: 56 tokens, Prompt: 10 tokens, Completion: 46 tokens, Time: 6.95s, Latency: 1.11s, Length: 253 chars
-Fireworks : Speed: 20.32 tokens/s, Total: 241 tokens, Prompt: 10 tokens, Completion: 231 tokens, Time: 11.37s, Latency: 1.26s, Length: 1034 chars
-Together  : Speed: 8.51 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Completion: 240 tokens, Time: 28.21s, Latency: 1.09s, Length: 1164 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T07:03:57.238Z
-Test prompt: What is the capital of France?
-DeepSeek  : Speed: 20.00 tokens/s, Total: 435 tokens, Prompt: 12 tokens, Completion: 423 tokens, Time: 21.15s, Latency: 1.15s, Length: 1973 chars
-DeepInfra : Speed: 9.76 tokens/s, Total: 296 tokens, Prompt: 10 tokens, Completion: 286 tokens, Time: 29.30s, Latency: 0.82s, Length: 1388 chars
-Fireworks : Speed: 17.51 tokens/s, Total: 308 tokens, Prompt: 10 tokens, Completion: 298 tokens, Time: 17.02s, Latency: 1.88s, Length: 1307 chars
-Together  : Speed: 9.18 tokens/s, Total: 464 tokens, Prompt: 10 tokens, Completion: 454 tokens, Time: 49.45s, Latency: 0.98s, Length: 2148 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T06:51:22.327Z
-Test prompt: What is the capital of France?
-DeepSeek  : Speed: 67.60 tokens/s, Total: 507 tokens, Prompt: 12 tokens, Completion: 495 tokens, Time: 7.32s, Latency: 1.22s, Length: 2335 chars
-DeepInfra : Speed: 9.55 tokens/s, Total: 208 tokens, Prompt: 10 tokens, Completion: 198 tokens, Time: 20.73s, Latency: 0.83s, Length: 909 chars
-Fireworks : Speed: 15.94 tokens/s, Total: 200 tokens, Prompt: 10 tokens, Completion: 190 tokens, Time: 11.92s, Latency: 3.45s, Length: 822 chars
-Together  : Speed: 9.01 tokens/s, Total: 208 tokens, Prompt: 10 tokens, Completion: 198 tokens, Time: 21.97s, Latency: 1.09s, Length: 916 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T05:56:50.553Z
-Test prompt: What is the capital of France?
-DeepSeek  : Speed: 33.98 tokens/s, Total: 252 tokens, Prompt: 12 tokens, Completion: 240 tokens, Time: 7.06s, Latency: 1.59s, Length: 1128 chars
-DeepInfra : Speed: 9.37 tokens/s, Total: 435 tokens, Prompt: 10 tokens, Completion: 425 tokens, Time: 45.37s, Latency: 0.79s, Length: 2012 chars
-Fireworks : Speed: 12.43 tokens/s, Total: 498 tokens, Prompt: 10 tokens, Completion: 488 tokens, Time: 39.25s, Latency: 2.68s, Length: 2317 chars
-Together  : Speed: 10.52 tokens/s, Total: 257 tokens, Prompt: 10 tokens, Completion: 247 tokens, Time: 23.48s, Latency: 0.91s, Length: 1102 chars
-
-=== Final Benchmark Results ===
-Current time: 2025-01-29T05:49:32.626Z
-Test prompt: What is the capital of France?
-DeepSeek  : Speed: 35.48 tokens/s, Total: 434 tokens, Prompt: 12 tokens, Completion: 422 tokens, Time: 11.89s, Latency: 3.26s, Length: 2010 chars
-DeepInfra : Speed: 9.21 tokens/s, Total: 131 tokens, Prompt: 10 tokens, Completion: 121 tokens, Time: 13.14s, Latency: 0.76s, Length: 552 chars
-Fireworks : Speed: 11.79 tokens/s, Total: 288 tokens, Prompt: 10 tokens, Completion: 278 tokens, Time: 23.57s, Latency: 2.69s, Length: 1338 chars
-Together  : Speed: 10.12 tokens/s, Total: 250 tokens, Prompt: 10 tokens, Completion: 240 tokens, Time: 23.73s, Latency: 2.00s, Length: 1116 chars
 ```
 
 Full outputs:
