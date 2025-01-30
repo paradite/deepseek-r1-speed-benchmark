@@ -1,0 +1,62 @@
+{
+  "timestamp": "2025-01-30T07:23:37.790Z",
+  "results": {
+    "DeepSeek": 24.34,
+    "DeepInfra": 6.87,
+    "Fireworks": 21.41,
+    "Together": 18.65,
+    "Azure": 5.54
+  },
+  "details": [
+    {
+      "name": "DeepSeek",
+      "totalTokens": 424,
+      "promptTokens": 12,
+      "completionTokens": 412,
+      "responseTime": "16.93",
+      "firstResponseLatency": "1.11",
+      "speed": "24.34",
+      "responseLength": 1904
+    },
+    {
+      "name": "DeepInfra",
+      "totalTokens": 73,
+      "promptTokens": 10,
+      "completionTokens": 63,
+      "responseTime": "9.16",
+      "firstResponseLatency": "1.04",
+      "speed": "6.87",
+      "responseLength": 297
+    },
+    {
+      "name": "Fireworks",
+      "totalTokens": 373,
+      "promptTokens": 10,
+      "completionTokens": 363,
+      "responseTime": "16.96",
+      "firstResponseLatency": "2.16",
+      "speed": "21.41",
+      "responseLength": 1785
+    },
+    {
+      "name": "Together",
+      "totalTokens": 393,
+      "promptTokens": 10,
+      "completionTokens": 383,
+      "responseTime": "20.54",
+      "firstResponseLatency": "0.56",
+      "speed": "18.65",
+      "responseLength": 1782
+    },
+    {
+      "name": "Azure",
+      "totalTokens": 372,
+      "promptTokens": 10,
+      "completionTokens": 362,
+      "responseTime": "65.34",
+      "firstResponseLatency": "5.35",
+      "speed": "5.54",
+      "responseLength": 1783
+    }
+  ]
+}

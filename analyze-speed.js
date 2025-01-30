@@ -42,7 +42,7 @@ function getLatestBenchmarkData(limit) {
 }
 
 // Get benchmark data from JSON files
-const benchmarkData = getLatestBenchmarkData(10);
+const benchmarkData = getLatestBenchmarkData(100);
 
 // Get all speeds for each provider
 const providerSpeeds = {
@@ -65,21 +65,27 @@ console.log('=== Overall Speed Statistics (tokens/second) ===');
 console.log('Using latest', benchmarkData.length, 'benchmark runs\n');
 
 // Show the overall aggregate statistics with the same format as daily
-Object.entries(providerSpeeds).forEach(([provider, speeds]) => {
-  const validSpeeds = speeds.filter((s) => s !== null);
-  if (validSpeeds.length > 0) {
-    const mean = calculateMean(validSpeeds);
-    const median = calculateMedian(validSpeeds);
-    const min = Math.min(...validSpeeds);
-    const max = Math.max(...validSpeeds);
-    console.log(
-      `${provider.padEnd(10)}: Mean: ${mean.toFixed(2)}, Median: ${median.toFixed(
-        2
-      )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${validSpeeds.length}`
-    );
-  } else {
-    console.log(`${provider.padEnd(10)}: No data`);
-  }
+const providerStats = Object.entries(providerSpeeds)
+  .map(([provider, speeds]) => {
+    const validSpeeds = speeds.filter((s) => s !== null);
+    if (validSpeeds.length > 0) {
+      const mean = calculateMean(validSpeeds);
+      const median = calculateMedian(validSpeeds);
+      const min = Math.min(...validSpeeds);
+      const max = Math.max(...validSpeeds);
+      return { provider, mean, median, min, max, runs: validSpeeds.length };
+    }
+    return null;
+  })
+  .filter(Boolean)
+  .sort((a, b) => b.median - a.median);
+
+providerStats.forEach(({ provider, mean, median, min, max, runs }) => {
+  console.log(
+    `${provider.padEnd(10)}: Median: ${median.toFixed(2)}, Mean: ${mean.toFixed(
+      2
+    )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${runs}`
+  );
 });
 
 // Aggregate results by date
@@ -110,19 +116,26 @@ Object.entries(resultsByDate)
   .sort((a, b) => new Date(b[0]) - new Date(a[0]))
   .forEach(([date, providers]) => {
     console.log(`\nDate: ${date}`);
-    Object.entries(providers).forEach(([provider, speeds]) => {
-      if (speeds.length > 0) {
-        const mean = calculateMean(speeds);
-        const median = calculateMedian(speeds);
-        const min = Math.min(...speeds);
-        const max = Math.max(...speeds);
-        console.log(
-          `${provider.padEnd(10)}: Mean: ${mean.toFixed(2)}, Median: ${median.toFixed(
-            2
-          )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${speeds.length}`
-        );
-      } else {
-        // console.log(`${provider.padEnd(10)}: No data`);
-      }
+    // Calculate stats for each provider and sort by median
+    const dailyStats = Object.entries(providers)
+      .map(([provider, speeds]) => {
+        if (speeds.length > 0) {
+          const mean = calculateMean(speeds);
+          const median = calculateMedian(speeds);
+          const min = Math.min(...speeds);
+          const max = Math.max(...speeds);
+          return { provider, mean, median, min, max, runs: speeds.length };
+        }
+        return null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.median - a.median);
+
+    dailyStats.forEach(({ provider, mean, median, min, max, runs }) => {
+      console.log(
+        `${provider.padEnd(10)}: Median: ${median.toFixed(2)}, Mean: ${mean.toFixed(
+          2
+        )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${runs}`
+      );
     });
   });

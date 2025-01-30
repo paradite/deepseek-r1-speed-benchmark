@@ -29,36 +29,46 @@ Statistics of the speed of the API via `analyze-speed.js`.
 
 ```
 === Overall Speed Statistics (tokens/second) ===
-Using latest 10 benchmark runs
+Using latest 12 benchmark runs
 
-DeepSeek  : Mean: 29.40, Median: 20.49, Min: 11.28, Max: 67.60, Runs: 8
-DeepInfra : Mean: 8.35, Median: 8.63, Min: 6.61, Max: 9.76, Runs: 8
-Fireworks : Mean: 17.16, Median: 16.73, Min: 12.43, Max: 20.72, Runs: 8
-Together  : Mean: 10.57, Median: 9.09, Min: 7.57, Max: 18.58, Runs: 8
-Hyperbolic: Mean: 19.34, Median: 20.22, Min: 7.21, Max: 31.26, Runs: 5
-Azure     : Mean: 3.97, Median: 3.97, Min: 3.97, Max: 3.97, Runs: 1
+DeepSeek  : Median: 22.66, Mean: 29.50, Min: 11.28, Max: 67.60, Runs: 10
+Hyperbolic: Median: 20.22, Mean: 19.34, Min: 7.21, Max: 31.26, Runs: 5
+Fireworks : Median: 16.73, Mean: 17.05, Min: 11.79, Max: 21.41, Runs: 10
+Together  : Median: 9.65, Mean: 11.33, Min: 7.57, Max: 18.65, Runs: 10
+DeepInfra : Median: 8.55, Mean: 8.29, Min: 6.61, Max: 9.76, Runs: 10
+Azure     : Median: 4.75, Mean: 4.75, Min: 3.97, Max: 5.54, Runs: 2
 
 === Daily Statistics ===
 
 Date: 1/30/2025
-DeepSeek  : Mean: 25.62, Median: 18.86, Min: 11.28, Max: 46.72, Runs: 3
-DeepInfra : Mean: 7.38, Median: 7.19, Min: 7.05, Max: 7.89, Runs: 3
-Fireworks : Mean: 18.98, Median: 20.55, Min: 15.68, Max: 20.72, Runs: 3
-Together  : Mean: 13.26, Median: 12.51, Min: 8.69, Max: 18.58, Runs: 3
-Hyperbolic: Mean: 17.01, Median: 12.55, Min: 7.21, Max: 31.26, Runs: 3
-Azure     : Mean: 3.97, Median: 3.97, Min: 3.97, Max: 3.97, Runs: 1
+DeepSeek  : Median: 21.60, Mean: 25.30, Min: 11.28, Max: 46.72, Runs: 4
+Fireworks : Median: 20.63, Mean: 19.59, Min: 15.68, Max: 21.41, Runs: 4
+Together  : Median: 15.54, Mean: 14.61, Min: 8.69, Max: 18.65, Runs: 4
+Hyperbolic: Median: 12.55, Mean: 17.01, Min: 7.21, Max: 31.26, Runs: 3
+DeepInfra : Median: 7.12, Mean: 7.25, Min: 6.87, Max: 7.89, Runs: 4
+Azure     : Median: 4.75, Mean: 4.75, Min: 3.97, Max: 5.54, Runs: 2
 
 Date: 1/29/2025
-DeepSeek  : Mean: 31.67, Median: 20.98, Min: 15.80, Max: 67.60, Runs: 5
-DeepInfra : Mean: 8.93, Median: 9.37, Min: 6.61, Max: 9.76, Runs: 5
-Fireworks : Mean: 16.07, Median: 15.94, Min: 12.43, Max: 20.32, Runs: 5
-Together  : Mean: 8.96, Median: 9.01, Min: 7.57, Max: 10.52, Runs: 5
-Hyperbolic: Mean: 22.84, Median: 22.84, Min: 20.22, Max: 25.47, Runs: 2
+DeepSeek  : Median: 27.48, Mean: 32.31, Min: 15.80, Max: 67.60, Runs: 6
+Hyperbolic: Median: 22.84, Mean: 22.84, Min: 20.22, Max: 25.47, Runs: 2
+Fireworks : Median: 15.04, Mean: 15.36, Min: 11.79, Max: 20.32, Runs: 6
+DeepInfra : Median: 9.37, Mean: 8.98, Min: 6.61, Max: 9.76, Runs: 6
+Together  : Median: 9.09, Mean: 9.15, Min: 7.57, Max: 10.52, Runs: 6
 ```
 
 ## Sample recent outputs
 
 ```
+=== Final Benchmark Results ===
+Current time: 2025-01-30T07:23:37.790Z
+Test prompt: What is the capital of France?
+
+DeepSeek  : Speed: 24.34 tokens/s, Total: 424 tokens, Prompt: 12 tokens, Completion: 412 tokens, Time: 16.93s, Latency: 1.11s, Length: 1904 chars
+Fireworks : Speed: 21.41 tokens/s, Total: 373 tokens, Prompt: 10 tokens, Completion: 363 tokens, Time: 16.96s, Latency: 2.16s, Length: 1785 chars
+Together  : Speed: 18.65 tokens/s, Total: 393 tokens, Prompt: 10 tokens, Completion: 383 tokens, Time: 20.54s, Latency: 0.56s, Length: 1782 chars
+DeepInfra : Speed: 6.87 tokens/s, Total: 73 tokens, Prompt: 10 tokens, Completion: 63 tokens, Time: 9.16s, Latency: 1.04s, Length: 297 chars
+Azure     : Speed: 5.54 tokens/s, Total: 372 tokens, Prompt: 10 tokens, Completion: 362 tokens, Time: 65.34s, Latency: 5.35s, Length: 1783 chars
+
 === Final Benchmark Results ===
 Current time: 2025-01-30T06:31:40.351Z
 Test prompt: What is the capital of France?
@@ -94,6 +104,14 @@ DeepInfra : Speed: 7.05 tokens/s, Total: 383 tokens, Prompt: 10 tokens, Completi
 Full outputs:
 
 - Check [outputs](outputs) directory for full outputs
+
+## Missing data for some providers
+
+A timeout of 10 seconds is used for all providers.
+
+If the API does not respond within 10 seconds, the provider is skipped for that run.
+
+This is why some providers are missing data.
 
 ## Setup
 

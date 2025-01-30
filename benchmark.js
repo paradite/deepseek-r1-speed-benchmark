@@ -5,12 +5,18 @@ import path from 'path';
 
 dotenv.config();
 
+// Common OpenAI client config with timeout
+const clientConfig = {
+  timeout: 10000, // 10 seconds timeout
+};
+
 const providers = {
   deepseek: {
     name: 'DeepSeek',
     client: new OpenAI({
       baseURL: 'https://api.deepseek.com',
       apiKey: process.env.DEEPSEEK_API_KEY,
+      ...clientConfig,
     }),
     model: 'deepseek-reasoner',
     skip: false,
@@ -20,6 +26,7 @@ const providers = {
     client: new OpenAI({
       baseURL: 'https://api.deepinfra.com/v1/openai',
       apiKey: process.env.DEEPINFRA_TOKEN,
+      ...clientConfig,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
@@ -29,6 +36,7 @@ const providers = {
     client: new OpenAI({
       baseURL: 'https://api.fireworks.ai/inference/v1',
       apiKey: process.env.FIREWORKS_API_KEY,
+      ...clientConfig,
     }),
     model: 'accounts/fireworks/models/deepseek-r1',
     skip: false,
@@ -38,6 +46,7 @@ const providers = {
     client: new OpenAI({
       baseURL: 'https://api.together.xyz/v1',
       apiKey: process.env.TOGETHER_API_KEY,
+      ...clientConfig,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
@@ -47,6 +56,7 @@ const providers = {
     client: new OpenAI({
       baseURL: 'https://chutes-deepseek-ai-deepseek-r1.chutes.ai/v1',
       apiKey: process.env.CHUTES_API_KEY,
+      ...clientConfig,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
     skip: true, // requires TAO balance
@@ -56,6 +66,7 @@ const providers = {
     client: new OpenAI({
       baseURL: 'https://api.hyperbolic.xyz/v1',
       apiKey: process.env.HYPERBOLIC_API_KEY,
+      ...clientConfig,
     }),
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
@@ -66,6 +77,7 @@ const providers = {
     client: new OpenAI({
       baseURL: process.env.AZURE_AI_FOUNDRY_ENDPOINT,
       apiKey: process.env.AZURE_AI_FOUNDRY_API_KEY,
+      ...clientConfig,
     }),
     model: 'random-string', // does not matter since URL is already model specific
     skip: false,
@@ -161,7 +173,15 @@ async function measureSpeed(provider, showOutput = false) {
       responseLength: content.length,
     };
   } catch (error) {
-    console.error(`\nError during ${provider.name} benchmark:`, error);
+    if (
+      error.code === 'ETIMEDOUT' ||
+      error.name === 'AbortError' ||
+      error.message?.includes('timeout')
+    ) {
+      console.error(`\n${provider.name} timed out after 10 seconds`);
+    } else {
+      console.error(`\nError during ${provider.name} benchmark:`, error);
+    }
     return null;
   }
 }
