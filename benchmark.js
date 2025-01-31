@@ -196,6 +196,7 @@ async function runAllBenchmarks() {
   console.log('testPrompt:', testPrompt);
 
   const results = [];
+  const errors = {};
   for (const [key, provider] of Object.entries(providers)) {
     if (provider.skip) {
       console.log(`\nSkipping ${provider.name} as configured...`);
@@ -204,6 +205,9 @@ async function runAllBenchmarks() {
     const result = await measureSpeed(provider, showOutput);
     if (result) {
       results.push(result);
+    } else {
+      // Store error information
+      errors[provider.name] = 'Failed to complete benchmark';
     }
   }
 
@@ -212,10 +216,24 @@ async function runAllBenchmarks() {
   // Create JSON output
   const jsonData = {
     timestamp,
-    results: Object.fromEntries(
-      results.map((result) => [result.name, parseFloat(result.speed)])
-    ),
-    details: results,
+    results: Object.fromEntries([
+      ...results.map((result) => [result.name, parseFloat(result.speed)]),
+      ...Object.keys(errors).map((name) => [name, null]), // Add null for errored providers
+    ]),
+    details: [
+      ...results,
+      ...Object.entries(errors).map(([name, error]) => ({
+        name,
+        error,
+        speed: null,
+        totalTokens: null,
+        promptTokens: null,
+        completionTokens: null,
+        responseTime: null,
+        firstResponseLatency: null,
+        responseLength: null,
+      })),
+    ],
   };
 
   // Write JSON file
@@ -228,17 +246,39 @@ async function runAllBenchmarks() {
   output += `Current time: ${timestamp}\n`;
   output += `Test prompt: ${testPrompt}\n\n`;
 
-  // Sort results by speed in descending order
-  results.sort((a, b) => parseFloat(b.speed) - parseFloat(a.speed));
+  // Sort results by speed in descending order, putting errors at the end
+  const allResults = [
+    ...results,
+    ...Object.entries(errors).map(([name, error]) => ({
+      name,
+      speed: '0',
+      totalTokens: 'N/A',
+      promptTokens: 'N/A',
+      completionTokens: 'N/A',
+      responseTime: 'N/A',
+      firstResponseLatency: 'N/A',
+      responseLength: 'N/A',
+      error,
+    })),
+  ];
+  allResults.sort((a, b) => {
+    if (a.error && !b.error) return 1;
+    if (!a.error && b.error) return -1;
+    return parseFloat(b.speed) - parseFloat(a.speed);
+  });
 
-  results.forEach((result) => {
-    output += `${result.name.padEnd(10)}: Speed: ${result.speed} tokens/s, Total: ${
-      result.totalTokens
-    } tokens, Prompt: ${result.promptTokens} tokens, Completion: ${
-      result.completionTokens
-    } tokens, Time: ${result.responseTime}s, Latency: ${
-      result.firstResponseLatency
-    }s, Length: ${result.responseLength} chars\n`;
+  allResults.forEach((result) => {
+    if (result.error) {
+      output += `${result.name.padEnd(10)}: ERROR - ${result.error}\n`;
+    } else {
+      output += `${result.name.padEnd(10)}: Speed: ${result.speed} tokens/s, Total: ${
+        result.totalTokens
+      } tokens, Prompt: ${result.promptTokens} tokens, Completion: ${
+        result.completionTokens
+      } tokens, Time: ${result.responseTime}s, Latency: ${
+        result.firstResponseLatency
+      }s, Length: ${result.responseLength} chars\n`;
+    }
   });
 
   // Write text file

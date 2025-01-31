@@ -4,18 +4,25 @@ import path from 'path';
 // Helper function to calculate mean
 function calculateMean(numbers) {
   const validNumbers = numbers.filter((n) => n !== null);
+  if (validNumbers.length === 0) return null;
   return validNumbers.reduce((acc, curr) => acc + curr, 0) / validNumbers.length;
 }
 
 // Helper function to calculate median
 function calculateMedian(numbers) {
   const validNumbers = numbers.filter((n) => n !== null).sort((a, b) => a - b);
+  if (validNumbers.length === 0) return null;
   const mid = Math.floor(validNumbers.length / 2);
 
   if (validNumbers.length % 2 === 0) {
     return (validNumbers[mid - 1] + validNumbers[mid]) / 2;
   }
   return validNumbers[mid];
+}
+
+// Helper function to calculate error count
+function calculateErrorCount(speeds) {
+  return speeds.filter((speed) => speed === null).length;
 }
 
 // Read all JSON files from outputs directory
@@ -63,20 +70,36 @@ benchmarkData.forEach((run) => {
 // Helper function to calculate statistics for a provider's speeds
 function calculateProviderStats(provider, speeds) {
   if (speeds.length > 0) {
+    const errorCount = calculateErrorCount(speeds);
+    const validSpeeds = speeds.filter((s) => s !== null);
     const mean = calculateMean(speeds);
     const median = calculateMedian(speeds);
-    const min = Math.min(...speeds);
-    const max = Math.max(...speeds);
-    return { provider, mean, median, min, max, runs: speeds.length };
+    const min = validSpeeds.length > 0 ? Math.min(...validSpeeds) : null;
+    const max = validSpeeds.length > 0 ? Math.max(...validSpeeds) : null;
+    return {
+      provider,
+      mean,
+      median,
+      min,
+      max,
+      runs: speeds.length,
+      errorCount,
+    };
   }
   return null;
 }
 
 // Helper function to format statistics line
-function formatStatsLine({ provider, mean, median, min, max, runs }) {
-  return `${provider.padEnd(10)}: Median: ${median.toFixed(2)}, Mean: ${mean.toFixed(
-    2
-  )}, Min: ${min.toFixed(2)}, Max: ${max.toFixed(2)}, Runs: ${runs}`;
+function formatStatsLine({ provider, mean, median, min, max, runs, errorCount }) {
+  const stats = [];
+  if (median !== null) stats.push(`Median: ${median.toFixed(2)}`);
+  if (mean !== null) stats.push(`Mean: ${mean.toFixed(2)}`);
+  if (min !== null) stats.push(`Min: ${min.toFixed(2)}`);
+  if (max !== null) stats.push(`Max: ${max.toFixed(2)}`);
+  stats.push(`Runs: ${runs}`);
+  stats.push(`Errors: ${errorCount}`);
+
+  return `${provider.padEnd(10)}: ${stats.join(', ')}`;
 }
 
 // Helper function to process daily statistics
@@ -94,14 +117,26 @@ function processDailyStats(providers) {
   return Object.entries(providers)
     .map(([provider, speeds]) => calculateProviderStats(provider, speeds))
     .filter(Boolean)
-    .sort((a, b) => b.median - a.median);
+    .sort((a, b) => {
+      // Sort by median speed, but handle null values
+      if (a.median === null && b.median === null) return 0;
+      if (a.median === null) return 1;
+      if (b.median === null) return -1;
+      return b.median - a.median;
+    });
 }
 
 // Calculate overall statistics
 const providerStats = Object.entries(providerSpeeds)
   .map(([provider, speeds]) => calculateProviderStats(provider, speeds))
   .filter(Boolean)
-  .sort((a, b) => b.median - a.median);
+  .sort((a, b) => {
+    // Sort by median speed, but handle null values
+    if (a.median === null && b.median === null) return 0;
+    if (a.median === null) return 1;
+    if (b.median === null) return -1;
+    return b.median - a.median;
+  });
 
 // Aggregate results by date
 const resultsByDate = {};
@@ -118,9 +153,7 @@ benchmarkData.forEach((run) => {
     };
   }
   Object.entries(run.results).forEach(([provider, speed]) => {
-    if (speed !== null) {
-      resultsByDate[date][provider].push(speed);
-    }
+    resultsByDate[date][provider].push(speed);
   });
 });
 
@@ -151,7 +184,11 @@ function displayAndUpdateStats(overallStats, dailyStats) {
     '\n\n=== Daily Statistics ===\n' +
     Object.entries(dailyStats)
       .sort((a, b) => new Date(b[0]) - new Date(a[0]))
-      .map(([date, stats]) => `\nDate: ${date}\n${stats.map(formatStatsLine).join('\n')}`)
+      .map(([date, stats]) => {
+        if (!stats || stats.length === 0) return '';
+        return `\nDate: ${date}\n${stats.map(formatStatsLine).join('\n')}`;
+      })
+      .filter((section) => section !== '')
       .join('\n');
 
   // Combine sections
