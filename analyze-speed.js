@@ -96,8 +96,8 @@ function formatStatsLine({ provider, mean, median, min, max, runs, errorCount })
   if (mean !== null) stats.push(`Mean: ${mean.toFixed(2)}`);
   if (min !== null) stats.push(`Min: ${min.toFixed(2)}`);
   if (max !== null) stats.push(`Max: ${max.toFixed(2)}`);
-  stats.push(`Runs: ${runs}`);
-  stats.push(`Errors: ${errorCount}`);
+  stats.push(`Success: ${runs - errorCount}`);
+  stats.push(`Error: ${errorCount}`);
 
   return `${provider.padEnd(10)}: ${stats.join(', ')}`;
 }
