@@ -1,0 +1,5 @@
+=== Final Benchmark Results ===
+Current time: 2025-01-31T13:21:21.901Z
+Test prompt: What is the capital of France?
+
+Nvidia    : Speed: 13.45 tokens/s, Total: 229 tokens, Prompt: 10 tokens, Completion: 219 tokens, Time: 16.29s, Latency: 0.82s, Length: 1011 chars

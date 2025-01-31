@@ -11,85 +11,95 @@ const clientConfig = {
 };
 
 const providers = {
-  deepseek: {
-    name: 'DeepSeek',
+  // deepseek: {
+  //   name: 'DeepSeek',
+  //   client: new OpenAI({
+  //     baseURL: 'https://api.deepseek.com',
+  //     apiKey: process.env.DEEPSEEK_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'deepseek-reasoner',
+  //   skip: false,
+  // },
+  // deepinfra: {
+  //   name: 'DeepInfra',
+  //   client: new OpenAI({
+  //     baseURL: 'https://api.deepinfra.com/v1/openai',
+  //     apiKey: process.env.DEEPINFRA_TOKEN,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'deepseek-ai/DeepSeek-R1',
+  //   skip: false,
+  // },
+  // fireworks: {
+  //   name: 'Fireworks',
+  //   client: new OpenAI({
+  //     baseURL: 'https://api.fireworks.ai/inference/v1',
+  //     apiKey: process.env.FIREWORKS_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'accounts/fireworks/models/deepseek-r1',
+  //   skip: false,
+  // },
+  // together: {
+  //   name: 'Together',
+  //   client: new OpenAI({
+  //     baseURL: 'https://api.together.xyz/v1',
+  //     apiKey: process.env.TOGETHER_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'deepseek-ai/DeepSeek-R1',
+  //   skip: false,
+  // },
+  // chutes: {
+  //   name: 'Chutes',
+  //   client: new OpenAI({
+  //     baseURL: 'https://chutes-deepseek-ai-deepseek-r1.chutes.ai/v1',
+  //     apiKey: process.env.CHUTES_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'deepseek-ai/DeepSeek-R1',
+  //   skip: true, // requires TAO balance
+  // },
+  // hyperbolic: {
+  //   name: 'Hyperbolic',
+  //   client: new OpenAI({
+  //     baseURL: 'https://api.hyperbolic.xyz/v1',
+  //     apiKey: process.env.HYPERBOLIC_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'deepseek-ai/DeepSeek-R1',
+  //   skip: false,
+  // },
+  // azure: {
+  //   name: 'Azure',
+  //   longName: 'Azure AI Foundry',
+  //   client: new OpenAI({
+  //     baseURL: process.env.AZURE_AI_FOUNDRY_ENDPOINT,
+  //     apiKey: process.env.AZURE_AI_FOUNDRY_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'random-string', // does not matter since URL is already model specific
+  //   skip: false,
+  // },
+  // nebius: {
+  //   name: 'Nebius',
+  //   client: new OpenAI({
+  //     baseURL: 'https://api.studio.nebius.ai/v1/',
+  //     apiKey: process.env.NEBIUS_API_KEY,
+  //     ...clientConfig,
+  //   }),
+  //   model: 'deepseek-ai/DeepSeek-R1',
+  //   skip: false,
+  // },
+  nvidia: {
+    name: 'Nvidia',
     client: new OpenAI({
-      baseURL: 'https://api.deepseek.com',
-      apiKey: process.env.DEEPSEEK_API_KEY,
+      baseURL: 'https://integrate.api.nvidia.com/v1',
+      apiKey: process.env.NVIDIA_API_KEY,
       ...clientConfig,
     }),
-    model: 'deepseek-reasoner',
-    skip: false,
-  },
-  deepinfra: {
-    name: 'DeepInfra',
-    client: new OpenAI({
-      baseURL: 'https://api.deepinfra.com/v1/openai',
-      apiKey: process.env.DEEPINFRA_TOKEN,
-      ...clientConfig,
-    }),
-    model: 'deepseek-ai/DeepSeek-R1',
-    skip: false,
-  },
-  fireworks: {
-    name: 'Fireworks',
-    client: new OpenAI({
-      baseURL: 'https://api.fireworks.ai/inference/v1',
-      apiKey: process.env.FIREWORKS_API_KEY,
-      ...clientConfig,
-    }),
-    model: 'accounts/fireworks/models/deepseek-r1',
-    skip: false,
-  },
-  together: {
-    name: 'Together',
-    client: new OpenAI({
-      baseURL: 'https://api.together.xyz/v1',
-      apiKey: process.env.TOGETHER_API_KEY,
-      ...clientConfig,
-    }),
-    model: 'deepseek-ai/DeepSeek-R1',
-    skip: false,
-  },
-  chutes: {
-    name: 'Chutes',
-    client: new OpenAI({
-      baseURL: 'https://chutes-deepseek-ai-deepseek-r1.chutes.ai/v1',
-      apiKey: process.env.CHUTES_API_KEY,
-      ...clientConfig,
-    }),
-    model: 'deepseek-ai/DeepSeek-R1',
-    skip: true, // requires TAO balance
-  },
-  hyperbolic: {
-    name: 'Hyperbolic',
-    client: new OpenAI({
-      baseURL: 'https://api.hyperbolic.xyz/v1',
-      apiKey: process.env.HYPERBOLIC_API_KEY,
-      ...clientConfig,
-    }),
-    model: 'deepseek-ai/DeepSeek-R1',
-    skip: false,
-  },
-  azure: {
-    name: 'Azure',
-    longName: 'Azure AI Foundry',
-    client: new OpenAI({
-      baseURL: process.env.AZURE_AI_FOUNDRY_ENDPOINT,
-      apiKey: process.env.AZURE_AI_FOUNDRY_API_KEY,
-      ...clientConfig,
-    }),
-    model: 'random-string', // does not matter since URL is already model specific
-    skip: false,
-  },
-  nebius: {
-    name: 'Nebius',
-    client: new OpenAI({
-      baseURL: 'https://api.studio.nebius.ai/v1/',
-      apiKey: process.env.NEBIUS_API_KEY,
-      ...clientConfig,
-    }),
-    model: 'deepseek-ai/DeepSeek-R1',
+    model: 'deepseek-ai/deepseek-r1',
     skip: false,
   },
 };

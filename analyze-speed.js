@@ -60,6 +60,7 @@ const providerSpeeds = {
   Hyperbolic: [],
   Azure: [],
   Nebius: [],
+  Nvidia: [],
 };
 
 benchmarkData.forEach((run) => {
@@ -151,6 +152,7 @@ benchmarkData.forEach((run) => {
       Hyperbolic: [],
       Azure: [],
       Nebius: [],
+      Nvidia: [],
     };
   }
   Object.entries(run.results).forEach(([provider, speed]) => {

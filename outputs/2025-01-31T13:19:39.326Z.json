@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-01-31T13:19:39.326Z",
+  "results": {
+    "Nvidia": 5
+  },
+  "details": [
+    {
+      "name": "Nvidia",
+      "totalTokens": 632,
+      "promptTokens": 10,
+      "completionTokens": 622,
+      "responseTime": "124.40",
+      "firstResponseLatency": "1.05",
+      "speed": "5.00",
+      "responseLength": 2955
+    }
+  ]
+}
