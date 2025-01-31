@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-01-31T10:16:50.879Z",
+  "results": {
+    "DeepSeek": 17.55,
+    "DeepInfra": 7.77,
+    "Fireworks": 54.62,
+    "Together": 18.22,
+    "Azure": 5.64,
+    "Nebius": 17.24,
+    "Hyperbolic": null
+  },
+  "details": [
+    {
+      "name": "DeepSeek",
+      "totalTokens": 555,
+      "promptTokens": 12,
+      "completionTokens": 543,
+      "responseTime": "30.94",
+      "firstResponseLatency": "3.48",
+      "speed": "17.55",
+      "responseLength": 2624
+    },
+    {
+      "name": "DeepInfra",
+      "totalTokens": 318,
+      "promptTokens": 10,
+      "completionTokens": 308,
+      "responseTime": "39.65",
+      "firstResponseLatency": "1.69",
+      "speed": "7.77",
+      "responseLength": 1522
+    },
+    {
+      "name": "Fireworks",
+      "totalTokens": 442,
+      "promptTokens": 10,
+      "completionTokens": 432,
+      "responseTime": "7.91",
+      "firstResponseLatency": "1.78",
+      "speed": "54.62",
+      "responseLength": 1952
+    },
+    {
+      "name": "Together",
+      "totalTokens": 329,
+      "promptTokens": 10,
+      "completionTokens": 319,
+      "responseTime": "17.50",
+      "firstResponseLatency": "0.61",
+      "speed": "18.22",
+      "responseLength": 1480
+    },
+    {
+      "name": "Azure",
+      "totalTokens": 268,
+      "promptTokens": 10,
+      "completionTokens": 258,
+      "responseTime": "45.78",
+      "firstResponseLatency": "1.38",
+      "speed": "5.64",
+      "responseLength": 1238
+    },
+    {
+      "name": "Nebius",
+      "totalTokens": 380,
+      "promptTokens": 10,
+      "completionTokens": 370,
+      "responseTime": "21.46",
+      "firstResponseLatency": "1.48",
+      "speed": "17.24",
+      "responseLength": 1661
+    },
+    {
+      "name": "Hyperbolic",
+      "error": "Failed to complete benchmark",
+      "speed": null,
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    }
+  ]
+}
