@@ -17,6 +17,12 @@ Currently supports:
 TODO:
 
 - [Nebius](https://nebius.com/)
+- [Nvidia NIM](https://build.nvidia.com/deepseek-ai/deepseek-r1)
+
+Enterprise providers that I am not able to test due to high costs or lack of access:
+
+- [Awesome Cloud](https://awesomecloud.ai/secure-deepseek-r1/)
+- [AWS Bedrock](https://aws.amazon.com/blogs/aws/deepseek-r1-models-now-available-on-aws/)
 
 Watch list for DeepSeek R1 support:
 
