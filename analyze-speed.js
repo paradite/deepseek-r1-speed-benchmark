@@ -94,10 +94,9 @@ function formatStatsLine({ provider, mean, median, min, max, runs, errorCount })
   const stats = [];
   if (median !== null) stats.push(`Median: ${median.toFixed(2)}`);
   if (mean !== null) stats.push(`Mean: ${mean.toFixed(2)}`);
-  if (min !== null) stats.push(`Min: ${min.toFixed(2)}`);
-  if (max !== null) stats.push(`Max: ${max.toFixed(2)}`);
-  stats.push(`Success: ${runs - errorCount}`);
-  stats.push(`Error: ${errorCount}`);
+  if (min !== null && max !== null)
+    stats.push(`Min/Max: ${min.toFixed(2)}/${max.toFixed(2)}`);
+  stats.push(`Success/Error: ${runs - errorCount}/${errorCount}`);
 
   return `${provider.padEnd(10)}: ${stats.join(', ')}`;
 }
