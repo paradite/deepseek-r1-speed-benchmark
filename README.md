@@ -4,7 +4,9 @@ Code for benchmarking the speed of DeepSeek R1 from different providers' APIs.
 
 Read the full report: [DeepSeek R1: Comparing Pricing and Speed Across Providers](https://prompt.16x.engineer/blog/deepseek-r1-cost-pricing-speed)
 
-Currently supports:
+## Providers
+
+Currently supported:
 
 - [DeepSeek](https://www.deepseek.com/)
 - [DeepInfra](https://deepinfra.com/)
