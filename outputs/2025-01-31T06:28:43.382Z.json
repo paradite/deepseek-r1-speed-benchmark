@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-01-31T06:28:43.382Z",
+  "results": {
+    "Nebius": 4.1
+  },
+  "details": [
+    {
+      "name": "Nebius",
+      "totalTokens": 198,
+      "promptTokens": 10,
+      "completionTokens": 188,
+      "responseTime": "45.83",
+      "firstResponseLatency": "13.11",
+      "speed": "4.10",
+      "responseLength": 824
+    }
+  ]
+}

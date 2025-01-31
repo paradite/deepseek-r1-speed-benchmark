@@ -1,0 +1,5 @@
+=== Final Benchmark Results ===
+Current time: 2025-01-31T06:26:35.106Z
+Test prompt: What is the capital of France?
+
+Nebius    : Speed: 10.51 tokens/s, Total: 426 tokens, Prompt: 10 tokens, Completion: 416 tokens, Time: 39.57s, Latency: 1.34s, Length: 1893 chars
