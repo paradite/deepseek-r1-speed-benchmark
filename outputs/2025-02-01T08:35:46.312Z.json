@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-02-01T08:35:46.312Z",
+  "results": {
+    "DeepInfra": 6.46,
+    "Fireworks": 26.94,
+    "Together": 20.79,
+    "Azure": 6.92,
+    "Nebius": 5.49,
+    "Nvidia": 16.09,
+    "DeepSeek": null,
+    "Hyperbolic": null
+  },
+  "details": [
+    {
+      "name": "DeepInfra",
+      "totalTokens": 522,
+      "promptTokens": 10,
+      "completionTokens": 512,
+      "responseTime": "79.20",
+      "firstResponseLatency": "1.02",
+      "speed": "6.46",
+      "responseLength": 2475
+    },
+    {
+      "name": "Fireworks",
+      "totalTokens": 373,
+      "promptTokens": 10,
+      "completionTokens": 363,
+      "responseTime": "13.47",
+      "firstResponseLatency": "3.11",
+      "speed": "26.94",
+      "responseLength": 1749
+    },
+    {
+      "name": "Together",
+      "totalTokens": 187,
+      "promptTokens": 10,
+      "completionTokens": 177,
+      "responseTime": "8.52",
+      "firstResponseLatency": "0.55",
+      "speed": "20.79",
+      "responseLength": 784
+    },
+    {
+      "name": "Azure",
+      "totalTokens": 294,
+      "promptTokens": 10,
+      "completionTokens": 284,
+      "responseTime": "41.06",
+      "firstResponseLatency": "1.30",
+      "speed": "6.92",
+      "responseLength": 1335
+    },
+    {
+      "name": "Nebius",
+      "totalTokens": 299,
+      "promptTokens": 10,
+      "completionTokens": 289,
+      "responseTime": "52.66",
+      "firstResponseLatency": "1.23",
+      "speed": "5.49",
+      "responseLength": 1362
+    },
+    {
+      "name": "Nvidia",
+      "totalTokens": 310,
+      "promptTokens": 10,
+      "completionTokens": 300,
+      "responseTime": "18.64",
+      "firstResponseLatency": "1.01",
+      "speed": "16.09",
+      "responseLength": 1369
+    },
+    {
+      "name": "DeepSeek",
+      "error": "Failed to complete benchmark",
+      "speed": null,
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    },
+    {
+      "name": "Hyperbolic",
+      "error": "Failed to complete benchmark",
+      "speed": null,
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    }
+  ]
+}
