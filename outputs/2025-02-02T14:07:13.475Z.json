@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-02-02T14:07:13.475Z",
+  "results": {
+    "DeepSeek": 13.45,
+    "DeepInfra": 9.28,
+    "Fireworks": 25.77,
+    "Together": 14.14,
+    "Hyperbolic": 12.41,
+    "Azure": 6.62,
+    "Nebius": 10.15,
+    "Nvidia": 6.76
+  },
+  "details": [
+    {
+      "name": "DeepSeek",
+      "totalTokens": 374,
+      "promptTokens": 12,
+      "completionTokens": 362,
+      "responseTime": "26.91",
+      "firstResponseLatency": "4.30",
+      "speed": "13.45",
+      "responseLength": 1734
+    },
+    {
+      "name": "DeepInfra",
+      "totalTokens": 277,
+      "promptTokens": 10,
+      "completionTokens": 267,
+      "responseTime": "28.77",
+      "firstResponseLatency": "1.19",
+      "speed": "9.28",
+      "responseLength": 1250
+    },
+    {
+      "name": "Fireworks",
+      "totalTokens": 298,
+      "promptTokens": 10,
+      "completionTokens": 288,
+      "responseTime": "11.18",
+      "firstResponseLatency": "2.38",
+      "speed": "25.77",
+      "responseLength": 1322
+    },
+    {
+      "name": "Together",
+      "totalTokens": 204,
+      "promptTokens": 10,
+      "completionTokens": 194,
+      "responseTime": "13.72",
+      "firstResponseLatency": "0.89",
+      "speed": "14.14",
+      "responseLength": 907
+    },
+    {
+      "name": "Hyperbolic",
+      "totalTokens": 350,
+      "promptTokens": 10,
+      "completionTokens": 340,
+      "responseTime": "27.39",
+      "firstResponseLatency": "1.20",
+      "speed": "12.41",
+      "responseLength": 1606
+    },
+    {
+      "name": "Azure",
+      "totalTokens": 221,
+      "promptTokens": 10,
+      "completionTokens": 211,
+      "responseTime": "31.89",
+      "firstResponseLatency": "1.88",
+      "speed": "6.62",
+      "responseLength": 1011
+    },
+    {
+      "name": "Nebius",
+      "totalTokens": 334,
+      "promptTokens": 10,
+      "completionTokens": 324,
+      "responseTime": "31.92",
+      "firstResponseLatency": "1.45",
+      "speed": "10.15",
+      "responseLength": 1432
+    },
+    {
+      "name": "Nvidia",
+      "totalTokens": 468,
+      "promptTokens": 10,
+      "completionTokens": 458,
+      "responseTime": "67.73",
+      "firstResponseLatency": "5.85",
+      "speed": "6.76",
+      "responseLength": 2109
+    }
+  ]
+}
