@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-02-03T09:10:46.944Z",
+  "results": {
+    "DeepInfra": 7.83,
+    "Fireworks": 32.79,
+    "Together": 15.67,
+    "Hyperbolic": 6.44,
+    "Azure": 6.75,
+    "Nebius": 3.25,
+    "DeepSeek": null,
+    "Nvidia": null
+  },
+  "details": [
+    {
+      "name": "DeepInfra",
+      "totalTokens": 328,
+      "promptTokens": 10,
+      "completionTokens": 318,
+      "responseTime": "40.59",
+      "firstResponseLatency": "1.24",
+      "speed": "7.83",
+      "responseLength": 1523
+    },
+    {
+      "name": "Fireworks",
+      "totalTokens": 379,
+      "promptTokens": 10,
+      "completionTokens": 369,
+      "responseTime": "11.26",
+      "firstResponseLatency": "1.06",
+      "speed": "32.79",
+      "responseLength": 1805
+    },
+    {
+      "name": "Together",
+      "totalTokens": 437,
+      "promptTokens": 10,
+      "completionTokens": 427,
+      "responseTime": "27.26",
+      "firstResponseLatency": "0.58",
+      "speed": "15.67",
+      "responseLength": 1980
+    },
+    {
+      "name": "Hyperbolic",
+      "totalTokens": 385,
+      "promptTokens": 10,
+      "completionTokens": 375,
+      "responseTime": "58.20",
+      "firstResponseLatency": "1.02",
+      "speed": "6.44",
+      "responseLength": 1755
+    },
+    {
+      "name": "Azure",
+      "totalTokens": 274,
+      "promptTokens": 10,
+      "completionTokens": 264,
+      "responseTime": "39.11",
+      "firstResponseLatency": "1.29",
+      "speed": "6.75",
+      "responseLength": 1193
+    },
+    {
+      "name": "Nebius",
+      "totalTokens": 199,
+      "promptTokens": 10,
+      "completionTokens": 189,
+      "responseTime": "58.12",
+      "firstResponseLatency": "1.57",
+      "speed": "3.25",
+      "responseLength": 839
+    },
+    {
+      "name": "DeepSeek",
+      "error": "Failed to complete benchmark",
+      "speed": null,
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    },
+    {
+      "name": "Nvidia",
+      "error": "Failed to complete benchmark",
+      "speed": null,
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    }
+  ]
+}
