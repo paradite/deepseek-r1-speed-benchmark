@@ -93,11 +93,18 @@ function calculateProviderStats(provider, speeds) {
 
 // Helper function to format statistics line
 function formatStatsLine({ provider, mean, median, min, max, runs, errorCount }) {
+  const errorRate = runs > 0 ? ((errorCount / runs) * 100).toFixed(2) + '%' : '?';
   const stats = [];
-  if (median !== null) stats.push(`Median: ${median.toFixed(2)}`);
-  if (mean !== null) stats.push(`Mean: ${mean.toFixed(2)}`);
-  if (min !== null && max !== null)
-    stats.push(`Min/Max: ${min.toFixed(2)}/${max.toFixed(2)}`);
+  if (median !== null) {
+    stats.push(`Median: ${median.toFixed(2).padStart(5)}`);
+  }
+  stats.push(`Error rate: ${errorRate.padStart(6)}`);
+  if (mean !== null) {
+    stats.push(`Mean: ${mean.toFixed(2).padStart(5)}`);
+  }
+  if (min !== null && max !== null) {
+    stats.push(`Min/Max: ${min.toFixed(2).padStart(5)}/${max.toFixed(2).padStart(5)}`);
+  }
   stats.push(`Success/Error: ${runs - errorCount}/${errorCount}`);
 
   return `${provider.padEnd(10)}: ${stats.join(', ')}`;
