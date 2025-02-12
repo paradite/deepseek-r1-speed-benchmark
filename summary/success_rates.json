@@ -52,6 +52,20 @@
     }
   },
   {
+    "date": "12/02/2025",
+    "providers": {
+      "Together": 100,
+      "Nvidia": 100,
+      "Fireworks": 100,
+      "Kluster": 100,
+      "DeepSeek": 100,
+      "Nebius": 100,
+      "DeepInfra": 100,
+      "Azure": 100,
+      "Hyperbolic": 100
+    }
+  },
+  {
     "date": "31/01/2025",
     "providers": {
       "Fireworks": 100,

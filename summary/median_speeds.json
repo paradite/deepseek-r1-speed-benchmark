@@ -52,6 +52,20 @@
     }
   },
   {
+    "date": "12/02/2025",
+    "providers": {
+      "Together": 38.42,
+      "Nvidia": 33.92,
+      "Fireworks": 27.05,
+      "Kluster": 19.59,
+      "DeepSeek": 16.07,
+      "Nebius": 9.43,
+      "DeepInfra": 8.8,
+      "Azure": 6.04,
+      "Hyperbolic": 5.4
+    }
+  },
+  {
     "date": "31/01/2025",
     "providers": {
       "Fireworks": 28.99,
