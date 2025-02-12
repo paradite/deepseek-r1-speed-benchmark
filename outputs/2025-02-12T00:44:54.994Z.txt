@@ -1,0 +1,5 @@
+=== Final Benchmark Results ===
+Current time: 2025-02-12T00:44:54.994Z
+Test prompt: What is the capital of France?
+
+Kluster   : Speed: 16.18 tokens/s, Total: 458 tokens, Prompt: 10 tokens, Completion: 448 tokens, Time: 27.69s, Latency: 9.80s, Length: 2150 chars

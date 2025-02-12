@@ -227,5 +227,60 @@ function displayAndUpdateStats(overallStats, dailyStats) {
   fs.writeFileSync(readmePath, readmeContent, 'utf8');
 }
 
+// Function to generate time series data for visualization
+function generateTimeSeriesData(dailyStats) {
+  const medianData = Object.entries(dailyStats)
+    .sort((a, b) => new Date(a[0]) - new Date(b[0])) // Sort by date ascending
+    .map(([date, stats]) => {
+      const dataPoint = {
+        date,
+        providers: {},
+      };
+
+      stats.forEach(({ provider, median }) => {
+        dataPoint.providers[provider] =
+          median !== null ? Number(median.toFixed(2)) : null;
+      });
+
+      return dataPoint;
+    });
+
+  const successRateData = Object.entries(dailyStats)
+    .sort((a, b) => new Date(a[0]) - new Date(b[0])) // Sort by date ascending
+    .map(([date, stats]) => {
+      const dataPoint = {
+        date,
+        providers: {},
+      };
+
+      stats.forEach(({ provider, runs, errorCount }) => {
+        const successCount = runs - errorCount;
+        dataPoint.providers[provider] =
+          runs > 0 ? Number(((successCount / runs) * 100).toFixed(2)) : null;
+      });
+
+      return dataPoint;
+    });
+
+  // Create summary directory if it doesn't exist
+  const summaryDir = path.join('.', 'summary');
+  if (!fs.existsSync(summaryDir)) {
+    fs.mkdirSync(summaryDir);
+  }
+
+  // Write median data to JSON file
+  const medianPath = path.join(summaryDir, 'median_speeds.json');
+  fs.writeFileSync(medianPath, JSON.stringify(medianData, null, 2), 'utf8');
+  console.log('\nMedian speeds data has been written to:', medianPath);
+
+  // Write success rate data to JSON file
+  const successPath = path.join(summaryDir, 'success_rates.json');
+  fs.writeFileSync(successPath, JSON.stringify(successRateData, null, 2), 'utf8');
+  console.log('Success rates data has been written to:', successPath);
+}
+
 // Display statistics and update README
 displayAndUpdateStats(providerStats, dailyStats);
+
+// Generate time series data
+generateTimeSeriesData(dailyStats);

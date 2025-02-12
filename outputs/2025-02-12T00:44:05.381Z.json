@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-02-12T00:44:05.381Z",
+  "results": {
+    "Kluster": 15.62
+  },
+  "details": [
+    {
+      "name": "Kluster",
+      "totalTokens": 553,
+      "promptTokens": 10,
+      "completionTokens": 543,
+      "responseTime": "34.77",
+      "firstResponseLatency": "2.37",
+      "speed": "15.62",
+      "responseLength": 2546
+    }
+  ]
+}

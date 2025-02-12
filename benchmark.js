@@ -102,6 +102,16 @@ const providers = {
     model: 'deepseek-ai/deepseek-r1',
     skip: false,
   },
+  kluster: {
+    name: 'Kluster',
+    client: new OpenAI({
+      baseURL: 'https://api.kluster.ai/v1',
+      apiKey: process.env.KLUSTER_API_KEY,
+      ...clientConfig,
+    }),
+    model: 'deepseek-ai/DeepSeek-R1',
+    skip: false,
+  },
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";
