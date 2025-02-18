@@ -21,6 +21,7 @@ Currently supported:
 
 TODO:
 
+- [Sambanova Cloud](https://cloud.sambanova.ai/plans/pricing) (waiting list)
 - [replicate](https://replicate.com/deepseek-ai/deepseek-r1)
 
 Providers that I am not able to test due to high costs or lack of open access:
