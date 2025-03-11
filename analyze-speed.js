@@ -178,7 +178,14 @@ benchmarkData.forEach((run) => {
 // Process daily statistics
 const dailyStats = {};
 Object.entries(resultsByDate)
-  .sort((a, b) => new Date(b[0]) - new Date(a[0]))
+  .sort((a, b) => {
+    // Parse UK formatted dates (DD/MM/YYYY)
+    const [aDay, aMonth, aYear] = a[0].split('/');
+    const [bDay, bMonth, bYear] = b[0].split('/');
+    const aDate = new Date(aYear, aMonth - 1, aDay);
+    const bDate = new Date(bYear, bMonth - 1, bDay);
+    return bDate - aDate;
+  })
   .forEach(([date, providers]) => {
     const stats = processDailyStats(providers);
     if (stats) {
@@ -201,7 +208,14 @@ function displayAndUpdateStats(overallStats, dailyStats) {
   const dailySection =
     '\n\n=== Daily Statistics ===\n' +
     Object.entries(dailyStats)
-      .sort((a, b) => new Date(b[0]) - new Date(a[0]))
+      .sort((a, b) => {
+        // Parse UK formatted dates (DD/MM/YYYY)
+        const [aDay, aMonth, aYear] = a[0].split('/');
+        const [bDay, bMonth, bYear] = b[0].split('/');
+        const aDate = new Date(aYear, aMonth - 1, aDay);
+        const bDate = new Date(bYear, bMonth - 1, bDay);
+        return bDate - aDate;
+      })
       .map(([date, stats]) => {
         if (!stats || stats.length === 0) return '';
         return `\nDate: ${date}\n${stats.map(formatStatsLine).join('\n')}`;
@@ -238,7 +252,14 @@ function displayAndUpdateStats(overallStats, dailyStats) {
 // Function to generate time series data for visualization
 function generateTimeSeriesData(dailyStats) {
   const medianData = Object.entries(dailyStats)
-    .sort((a, b) => new Date(a[0]) - new Date(b[0])) // Sort by date ascending
+    .sort((a, b) => {
+      // Parse UK formatted dates (DD/MM/YYYY)
+      const [aDay, aMonth, aYear] = a[0].split('/');
+      const [bDay, bMonth, bYear] = b[0].split('/');
+      const aDate = new Date(aYear, aMonth - 1, aDay);
+      const bDate = new Date(bYear, bMonth - 1, bDay);
+      return aDate - bDate; // Note: ascending order for time series
+    })
     .map(([date, stats]) => {
       const dataPoint = {
         date,
@@ -254,7 +275,14 @@ function generateTimeSeriesData(dailyStats) {
     });
 
   const successRateData = Object.entries(dailyStats)
-    .sort((a, b) => new Date(a[0]) - new Date(b[0])) // Sort by date ascending
+    .sort((a, b) => {
+      // Parse UK formatted dates (DD/MM/YYYY)
+      const [aDay, aMonth, aYear] = a[0].split('/');
+      const [bDay, bMonth, bYear] = b[0].split('/');
+      const aDate = new Date(aYear, aMonth - 1, aDay);
+      const bDate = new Date(bYear, bMonth - 1, bDay);
+      return aDate - bDate; // Note: ascending order for time series
+    })
     .map(([date, stats]) => {
       const dataPoint = {
         date,

@@ -58,6 +58,9 @@ Nebius    : Median:  6.28, Error rate:  0.00%, Mean:  7.59, Min/Max:  3.21/17.24
 
 === Daily Statistics ===
 
+Date: 11/03/2025
+Novita    : Median: 13.57, Error rate:  0.00%, Mean: 12.88, Min/Max:  9.75/15.39, Success/Error: 5/0
+
 Date: 12/02/2025
 Together  : Median: 38.42, Error rate:  0.00%, Mean: 38.42, Min/Max: 35.93/40.91, Success/Error: 2/0
 Nvidia    : Median: 33.92, Error rate:  0.00%, Mean: 33.92, Min/Max: 33.59/34.26, Success/Error: 2/0
@@ -68,9 +71,6 @@ Nebius    : Median:  9.43, Error rate:  0.00%, Mean:  9.43, Min/Max:  8.43/10.42
 DeepInfra : Median:  8.80, Error rate:  0.00%, Mean:  8.80, Min/Max:  8.52/ 9.09, Success/Error: 2/0
 Azure     : Median:  6.04, Error rate:  0.00%, Mean:  6.04, Min/Max:  5.50/ 6.59, Success/Error: 2/0
 Hyperbolic: Median:  5.40, Error rate:  0.00%, Mean:  5.40, Min/Max:  4.49/ 6.31, Success/Error: 2/0
-
-Date: 11/03/2025
-Novita    : Median: 13.57, Error rate:  0.00%, Mean: 12.88, Min/Max:  9.75/15.39, Success/Error: 5/0
 
 Date: 05/02/2025
 Hyperbolic: Median: 21.13, Error rate: 33.33%, Mean: 21.13, Min/Max: 16.03/26.24, Success/Error: 2/1
