@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-03-11T05:48:22.002Z",
+  "results": {
+    "Novita": 13.57
+  },
+  "details": [
+    {
+      "name": "Novita",
+      "totalTokens": 141,
+      "promptTokens": 29,
+      "completionTokens": 112,
+      "responseTime": "8.26",
+      "firstResponseLatency": "1.36",
+      "speed": "13.57",
+      "responseLength": 523
+    }
+  ]
+}

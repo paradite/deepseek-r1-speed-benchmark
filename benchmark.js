@@ -112,6 +112,16 @@ const providers = {
     model: 'deepseek-ai/DeepSeek-R1',
     skip: false,
   },
+  novita: {
+    name: 'Novita',
+    client: new OpenAI({
+      baseURL: 'https://api.novita.ai/v3/openai',
+      apiKey: process.env.NOVITA_API_KEY,
+      ...clientConfig,
+    }),
+    model: 'deepseek/deepseek-r1',
+    skip: false,
+  },
 };
 
 // const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";

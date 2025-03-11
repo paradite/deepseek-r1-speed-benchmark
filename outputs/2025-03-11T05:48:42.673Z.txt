@@ -1,0 +1,5 @@
+=== Final Benchmark Results ===
+Current time: 2025-03-11T05:48:42.673Z
+Test prompt: What is the capital of France?
+
+Novita    : Speed: 10.68 tokens/s, Total: 199 tokens, Prompt: 29 tokens, Completion: 170 tokens, Time: 15.92s, Latency: 1.44s, Length: 808 chars

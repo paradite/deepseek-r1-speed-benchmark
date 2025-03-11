@@ -62,6 +62,7 @@ const providerSpeeds = {
   Nebius: [],
   Nvidia: [],
   Kluster: [],
+  Novita: [],
 };
 
 benchmarkData.forEach((run) => {
@@ -150,7 +151,11 @@ const providerStats = Object.entries(providerSpeeds)
 // Aggregate results by date
 const resultsByDate = {};
 benchmarkData.forEach((run) => {
-  const date = new Date(run.timestamp).toLocaleDateString();
+  const date = new Date(run.timestamp).toLocaleDateString('en-UK', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
   if (!resultsByDate[date]) {
     resultsByDate[date] = {
       DeepSeek: [],
@@ -162,6 +167,7 @@ benchmarkData.forEach((run) => {
       Nebius: [],
       Nvidia: [],
       Kluster: [],
+      Novita: [],
     };
   }
   Object.entries(run.results).forEach(([provider, speed]) => {
