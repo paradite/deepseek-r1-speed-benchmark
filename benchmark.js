@@ -119,7 +119,8 @@ const providers = {
       apiKey: process.env.NOVITA_API_KEY,
       ...clientConfig,
     }),
-    model: 'deepseek/deepseek-r1',
+    // Novita recommends deepseek-r1-turbo for better performance and value
+    model: 'deepseek/deepseek-r1-turbo',
     skip: false,
   },
 };
