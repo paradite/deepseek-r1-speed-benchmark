@@ -104,5 +104,19 @@
     "providers": {
       "Novita": 13.57
     }
+  },
+  {
+    "date": "21/03/2025",
+    "providers": {
+      "Together": 86.1,
+      "Fireworks": 75.46,
+      "Azure": 41.85,
+      "Nebius": 23.59,
+      "Novita": 23.03,
+      "Hyperbolic": 22.51,
+      "Kluster": 20.25,
+      "DeepSeek": 17.02,
+      "DeepInfra": 12.01
+    }
   }
 ]

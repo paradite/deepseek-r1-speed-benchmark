@@ -104,5 +104,19 @@
     "providers": {
       "Novita": 100
     }
+  },
+  {
+    "date": "21/03/2025",
+    "providers": {
+      "Together": 100,
+      "Fireworks": 100,
+      "Azure": 100,
+      "Nebius": 100,
+      "Novita": 100,
+      "Hyperbolic": 100,
+      "Kluster": 100,
+      "DeepSeek": 100,
+      "DeepInfra": 100
+    }
   }
 ]

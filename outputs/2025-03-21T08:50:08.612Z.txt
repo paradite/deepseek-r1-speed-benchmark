@@ -1,0 +1,13 @@
+=== Final Benchmark Results ===
+Current time: 2025-03-21T08:50:08.612Z
+Test prompt: What is the capital of France?
+
+Together  : Speed: 86.10 tokens/s, Total: 575 tokens, Prompt: 10 tokens, Completion: 565 tokens, Time: 6.56s, Latency: 1.11s, Length: 2792 chars
+Fireworks : Speed: 75.46 tokens/s, Total: 641 tokens, Prompt: 10 tokens, Completion: 631 tokens, Time: 8.36s, Latency: 1.14s, Length: 3086 chars
+Azure     : Speed: 41.85 tokens/s, Total: 674 tokens, Prompt: 10 tokens, Completion: 664 tokens, Time: 15.87s, Latency: 1.24s, Length: 3079 chars
+Nebius    : Speed: 23.59 tokens/s, Total: 302 tokens, Prompt: 10 tokens, Completion: 292 tokens, Time: 12.38s, Latency: 2.55s, Length: 1383 chars
+Novita    : Speed: 23.03 tokens/s, Total: 579 tokens, Prompt: 12 tokens, Completion: 567 tokens, Time: 24.62s, Latency: 1.99s, Length: 2709 chars
+Hyperbolic: Speed: 22.51 tokens/s, Total: 219 tokens, Prompt: 12 tokens, Completion: 207 tokens, Time: 9.20s, Latency: 1.69s, Length: 1019 chars
+Kluster   : Speed: 20.25 tokens/s, Total: 447 tokens, Prompt: 10 tokens, Completion: 437 tokens, Time: 21.57s, Latency: 1.04s, Length: 2058 chars
+DeepSeek  : Speed: 17.02 tokens/s, Total: 534 tokens, Prompt: 12 tokens, Completion: 522 tokens, Time: 30.67s, Latency: 5.70s, Length: 2464 chars
+DeepInfra : Speed: 12.01 tokens/s, Total: 387 tokens, Prompt: 11 tokens, Completion: 376 tokens, Time: 31.30s, Latency: 1.75s, Length: 1833 chars
