@@ -2,8 +2,8 @@
   {
     "date": "29/01/2025",
     "providers": {
-      "DeepSeek": 100,
       "Hyperbolic": 100,
+      "DeepSeek": 100,
       "Fireworks": 100,
       "DeepInfra": 100,
       "Together": 100

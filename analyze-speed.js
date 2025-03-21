@@ -49,7 +49,7 @@ function getLatestBenchmarkData(limit) {
 }
 
 // Get benchmark data from JSON files
-const benchmarkData = getLatestBenchmarkData(100);
+const benchmarkData = getLatestBenchmarkData(50);
 
 // Get all speeds for each provider
 const providerSpeeds = {
