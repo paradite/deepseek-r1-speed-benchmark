@@ -3,10 +3,10 @@
     "date": "29/01/2025",
     "providers": {
       "Hyperbolic": 22.84,
-      "DeepSeek": 20.98,
-      "Fireworks": 15.94,
-      "DeepInfra": 9.37,
-      "Together": 9.01
+      "DeepSeek": 20.49,
+      "Fireworks": 16.73,
+      "DeepInfra": 9.46,
+      "Together": 8.76
     }
   },
   {
@@ -108,15 +108,15 @@
   {
     "date": "21/03/2025",
     "providers": {
-      "Together": 86.02,
-      "Fireworks": 75.46,
-      "Azure": 40.07,
-      "Nebius": 23.59,
-      "Novita": 23.03,
-      "Hyperbolic": 22.51,
-      "Kluster": 17.34,
-      "DeepSeek": 14.12,
-      "DeepInfra": 11.52
+      "Together": 86.1,
+      "Fireworks": 76.19,
+      "Azure": 39.81,
+      "Nebius": 24.02,
+      "Hyperbolic": 23.68,
+      "Novita": 22,
+      "Kluster": 20.25,
+      "DeepSeek": 15.57,
+      "DeepInfra": 10.4
     }
   }
 ]

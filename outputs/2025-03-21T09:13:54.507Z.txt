@@ -1,0 +1,13 @@
+=== Final Benchmark Results ===
+Current time: 2025-03-21T09:13:54.507Z
+Test prompt: What is the capital of Netherlands?
+
+Together  : Speed: 92.77 tokens/s, Total: 621 tokens, Prompt: 10 tokens, Completion: 611 tokens, Time: 6.59s, Latency: 0.99s, Length: 3099 chars
+Fireworks : Speed: 76.91 tokens/s, Total: 443 tokens, Prompt: 10 tokens, Completion: 433 tokens, Time: 5.63s, Latency: 0.99s, Length: 2256 chars
+Azure     : Speed: 39.55 tokens/s, Total: 412 tokens, Prompt: 10 tokens, Completion: 402 tokens, Time: 10.16s, Latency: 1.19s, Length: 1997 chars
+Hyperbolic: Speed: 25.59 tokens/s, Total: 518 tokens, Prompt: 12 tokens, Completion: 506 tokens, Time: 19.77s, Latency: 1.92s, Length: 2670 chars
+Nebius    : Speed: 24.46 tokens/s, Total: 357 tokens, Prompt: 10 tokens, Completion: 347 tokens, Time: 14.18s, Latency: 1.29s, Length: 1800 chars
+Kluster   : Speed: 21.40 tokens/s, Total: 665 tokens, Prompt: 10 tokens, Completion: 655 tokens, Time: 30.61s, Latency: 0.80s, Length: 3360 chars
+DeepSeek  : Speed: 17.57 tokens/s, Total: 486 tokens, Prompt: 12 tokens, Completion: 474 tokens, Time: 26.98s, Latency: 5.52s, Length: 2400 chars
+Novita    : Speed: 14.34 tokens/s, Total: 256 tokens, Prompt: 12 tokens, Completion: 244 tokens, Time: 17.02s, Latency: 8.11s, Length: 1282 chars
+DeepInfra : Speed: 9.29 tokens/s, Total: 397 tokens, Prompt: 11 tokens, Completion: 386 tokens, Time: 41.55s, Latency: 1.10s, Length: 1950 chars

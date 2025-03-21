@@ -8,6 +8,16 @@ function calculateMean(numbers) {
   return validNumbers.reduce((acc, curr) => acc + curr, 0) / validNumbers.length;
 }
 
+// Helper function to calculate standard deviation
+function calculateStdDev(numbers) {
+  const validNumbers = numbers.filter((n) => n !== null);
+  if (validNumbers.length === 0) return null;
+  const mean = calculateMean(validNumbers);
+  const squareDiffs = validNumbers.map((value) => Math.pow(value - mean, 2));
+  const avgSquareDiff = calculateMean(squareDiffs);
+  return Math.sqrt(avgSquareDiff);
+}
+
 // Helper function to calculate median
 function calculateMedian(numbers) {
   const validNumbers = numbers.filter((n) => n !== null).sort((a, b) => a - b);
@@ -80,12 +90,14 @@ function calculateProviderStats(provider, speeds) {
     const median = calculateMedian(speeds);
     const min = validSpeeds.length > 0 ? Math.min(...validSpeeds) : null;
     const max = validSpeeds.length > 0 ? Math.max(...validSpeeds) : null;
+    const stdDev = calculateStdDev(speeds);
     return {
       provider,
       mean,
       median,
       min,
       max,
+      stdDev,
       runs: speeds.length,
       errorCount,
     };
@@ -94,19 +106,22 @@ function calculateProviderStats(provider, speeds) {
 }
 
 // Helper function to format statistics line
-function formatStatsLine({ provider, mean, median, min, max, runs, errorCount }) {
+function formatStatsLine({ provider, mean, median, min, max, stdDev, runs, errorCount }) {
   const errorRate = runs > 0 ? ((errorCount / runs) * 100).toFixed(2) + '%' : '?';
   const stats = [];
-  if (median !== null) {
-    stats.push(`Median: ${median.toFixed(2).padStart(5)}`);
+  if (median !== null && mean !== null) {
+    stats.push(
+      `Median/Mean: ${median.toFixed(2).padStart(5)}/${mean.toFixed(2).padStart(5)}`
+    );
+  }
+  if (min !== null && max !== null && stdDev !== null) {
+    stats.push(
+      `Range: ${min.toFixed(2).padStart(5)}-${max.toFixed(2).padStart(5)} ±${stdDev
+        .toFixed(2)
+        .padStart(5)}`
+    );
   }
   stats.push(`Error rate: ${errorRate.padStart(6)}`);
-  if (mean !== null) {
-    stats.push(`Mean: ${mean.toFixed(2).padStart(5)}`);
-  }
-  if (min !== null && max !== null) {
-    stats.push(`Min/Max: ${min.toFixed(2).padStart(5)}/${max.toFixed(2).padStart(5)}`);
-  }
   stats.push(`Success/Error: ${runs - errorCount}/${errorCount}`);
 
   return `${provider.padEnd(10)}: ${stats.join(', ')}`;
