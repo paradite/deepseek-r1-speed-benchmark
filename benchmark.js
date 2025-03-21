@@ -100,7 +100,8 @@ const providers = {
       ...clientConfig,
     }),
     model: 'deepseek-ai/deepseek-r1',
-    skip: false,
+    // Nvidia is stuck at streaming without timeout, so we skip it for now
+    skip: true,
   },
   kluster: {
     name: 'Kluster',
