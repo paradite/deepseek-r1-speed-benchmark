@@ -126,9 +126,12 @@ const providers = {
   },
 };
 
-// const testPrompt = "Write a detailed 500 word essay about artificial intelligence.";
-const testPrompt = 'What is the capital of France?';
-// const testPrompt = 'Hello, how are you?';
+const countries = ['France', 'Germany', 'Italy', 'Spain', 'Portugal', 'Greece'];
+
+const testPrompt =
+  'What is the capital of ' +
+  countries[Math.floor(Math.random() * countries.length)] +
+  '?';
 
 async function measureSpeed(provider, showOutput = false) {
   const startTime = Date.now();
