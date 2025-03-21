@@ -126,7 +126,20 @@ const providers = {
   },
 };
 
-const countries = ['France', 'Germany', 'Italy', 'Spain', 'Portugal', 'Greece'];
+// List of countries in Europe to test, excluding France
+const countries = [
+  'Germany',
+  'Italy',
+  'Spain',
+  'Portugal',
+  'Greece',
+  'Netherlands',
+  'Belgium',
+  'Switzerland',
+  'Austria',
+  'Sweden',
+  'Norway',
+];
 
 const testPrompt =
   'What is the capital of ' +
@@ -164,7 +177,9 @@ async function measureSpeed(provider, showOutput = false) {
         const content_delta = delta.content || delta.reasoning_content;
         content += content_delta;
         if (showOutput && content_delta !== undefined) {
-          process.stdout.write(content_delta);
+          if (content_delta !== null) {
+            process.stdout.write(content_delta);
+          }
         } else {
           process.stdout.write('\rReceiving response... ' + content.length + ' chars');
         }
@@ -227,7 +242,15 @@ async function measureSpeed(provider, showOutput = false) {
     } else {
       console.error(`\nError during ${provider.name} benchmark:`, error);
     }
-    return null;
+    return {
+      name: provider.name,
+      error: error.message,
+      speed: null,
+      totalTokens: null,
+      promptTokens: null,
+      completionTokens: null,
+      responseTime: null,
+    };
   }
 }
 
@@ -248,11 +271,10 @@ async function runAllBenchmarks() {
       continue;
     }
     const result = await measureSpeed(provider, showOutput);
-    if (result) {
-      results.push(result);
+    if (result.error) {
+      errors[provider.name] = result.error;
     } else {
-      // Store error information
-      errors[provider.name] = 'Failed to complete benchmark';
+      results.push(result);
     }
   }
 

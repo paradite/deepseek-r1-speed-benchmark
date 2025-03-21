@@ -108,13 +108,13 @@
   {
     "date": "21/03/2025",
     "providers": {
-      "Together": 100,
+      "Together": 66.67,
       "Fireworks": 100,
       "Azure": 100,
       "Nebius": 100,
       "Novita": 100,
       "Hyperbolic": 100,
-      "Kluster": 50,
+      "Kluster": 66.67,
       "DeepSeek": 100,
       "DeepInfra": 100
     }

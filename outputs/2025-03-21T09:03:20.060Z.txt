@@ -1,0 +1,13 @@
+=== Final Benchmark Results ===
+Current time: 2025-03-21T09:03:20.060Z
+Test prompt: What is the capital of Germany?
+
+Fireworks : Speed: 78.17 tokens/s, Total: 445 tokens, Prompt: 10 tokens, Completion: 435 tokens, Time: 5.57s, Latency: 1.23s, Length: 1947 chars
+Azure     : Speed: 34.65 tokens/s, Total: 212 tokens, Prompt: 10 tokens, Completion: 202 tokens, Time: 5.83s, Latency: 1.18s, Length: 944 chars
+Hyperbolic: Speed: 24.85 tokens/s, Total: 502 tokens, Prompt: 12 tokens, Completion: 490 tokens, Time: 19.72s, Latency: 1.90s, Length: 2475 chars
+Novita    : Speed: 23.85 tokens/s, Total: 438 tokens, Prompt: 12 tokens, Completion: 426 tokens, Time: 17.86s, Latency: 1.99s, Length: 2026 chars
+Nebius    : Speed: 23.53 tokens/s, Total: 297 tokens, Prompt: 10 tokens, Completion: 287 tokens, Time: 12.20s, Latency: 1.43s, Length: 1330 chars
+Kluster   : Speed: 14.44 tokens/s, Total: 654 tokens, Prompt: 10 tokens, Completion: 644 tokens, Time: 44.59s, Latency: 1.09s, Length: 3146 chars
+DeepSeek  : Speed: 14.12 tokens/s, Total: 284 tokens, Prompt: 12 tokens, Completion: 272 tokens, Time: 19.27s, Latency: 6.26s, Length: 1278 chars
+DeepInfra : Speed: 7.73 tokens/s, Total: 522 tokens, Prompt: 11 tokens, Completion: 511 tokens, Time: 66.12s, Latency: 1.08s, Length: 2511 chars
+Together  : ERROR - Failed to complete benchmark

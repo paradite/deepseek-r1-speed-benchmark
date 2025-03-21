@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-03-21T09:03:20.060Z",
+  "results": {
+    "DeepSeek": 14.12,
+    "DeepInfra": 7.73,
+    "Fireworks": 78.17,
+    "Hyperbolic": 24.85,
+    "Azure": 34.65,
+    "Nebius": 23.53,
+    "Kluster": 14.44,
+    "Novita": 23.85,
+    "Together": null
+  },
+  "details": [
+    {
+      "name": "DeepSeek",
+      "totalTokens": 284,
+      "promptTokens": 12,
+      "completionTokens": 272,
+      "responseTime": "19.27",
+      "firstResponseLatency": "6.26",
+      "speed": "14.12",
+      "responseLength": 1278
+    },
+    {
+      "name": "DeepInfra",
+      "totalTokens": 522,
+      "promptTokens": 11,
+      "completionTokens": 511,
+      "responseTime": "66.12",
+      "firstResponseLatency": "1.08",
+      "speed": "7.73",
+      "responseLength": 2511
+    },
+    {
+      "name": "Fireworks",
+      "totalTokens": 445,
+      "promptTokens": 10,
+      "completionTokens": 435,
+      "responseTime": "5.57",
+      "firstResponseLatency": "1.23",
+      "speed": "78.17",
+      "responseLength": 1947
+    },
+    {
+      "name": "Hyperbolic",
+      "totalTokens": 502,
+      "promptTokens": 12,
+      "completionTokens": 490,
+      "responseTime": "19.72",
+      "firstResponseLatency": "1.90",
+      "speed": "24.85",
+      "responseLength": 2475
+    },
+    {
+      "name": "Azure",
+      "totalTokens": 212,
+      "promptTokens": 10,
+      "completionTokens": 202,
+      "responseTime": "5.83",
+      "firstResponseLatency": "1.18",
+      "speed": "34.65",
+      "responseLength": 944
+    },
+    {
+      "name": "Nebius",
+      "totalTokens": 297,
+      "promptTokens": 10,
+      "completionTokens": 287,
+      "responseTime": "12.20",
+      "firstResponseLatency": "1.43",
+      "speed": "23.53",
+      "responseLength": 1330
+    },
+    {
+      "name": "Kluster",
+      "totalTokens": 654,
+      "promptTokens": 10,
+      "completionTokens": 644,
+      "responseTime": "44.59",
+      "firstResponseLatency": "1.09",
+      "speed": "14.44",
+      "responseLength": 3146
+    },
+    {
+      "name": "Novita",
+      "totalTokens": 438,
+      "promptTokens": 12,
+      "completionTokens": 426,
+      "responseTime": "17.86",
+      "firstResponseLatency": "1.99",
+      "speed": "23.85",
+      "responseLength": 2026
+    },
+    {
+      "name": "Together",
+      "error": "Failed to complete benchmark",
+      "speed": null,
+      "totalTokens": null,
+      "promptTokens": null,
+      "completionTokens": null,
+      "responseTime": null,
+      "firstResponseLatency": null,
+      "responseLength": null
+    }
+  ]
+}

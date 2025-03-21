@@ -109,14 +109,14 @@
     "date": "21/03/2025",
     "providers": {
       "Together": 86.02,
-      "Fireworks": 70.54,
-      "Azure": 40.96,
-      "Nebius": 25.16,
-      "Novita": 22,
-      "Hyperbolic": 21.3,
-      "Kluster": 20.25,
-      "DeepSeek": 15.54,
-      "DeepInfra": 11.77
+      "Fireworks": 75.46,
+      "Azure": 40.07,
+      "Nebius": 23.59,
+      "Novita": 23.03,
+      "Hyperbolic": 22.51,
+      "Kluster": 17.34,
+      "DeepSeek": 14.12,
+      "DeepInfra": 11.52
     }
   }
 ]
